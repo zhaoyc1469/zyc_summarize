@@ -24,10 +24,14 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         initParam();
         //私有的初始化DataBinding和ViewModel方法
         initDataBinding(savedInstanceState);
+        initData();
         //注册监听
         mViewModel.registerRxBus();
     }
 
+    protected void initData(){
+
+    }
     protected void initParam() {
 
     }

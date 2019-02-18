@@ -31,4 +31,12 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     protected void removeRxBus() {
 
     }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (mModel != null){
+            mModel.destroy();
+        }
+    }
 }

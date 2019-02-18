@@ -1,6 +1,7 @@
 package com.zyc_summarize.demo.view.activity;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.zyc_summarize.base.base.BaseActivity;
 import com.zyc_summarize.demo.R;
@@ -14,5 +15,17 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
     @Override
     public int initContentView(Bundle savedInstanceState) {
         return R.layout.activity_splash;
+    }
+
+
+    @Override
+    protected void initData() {
+        super.initData();
+        mDataBinding.btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
