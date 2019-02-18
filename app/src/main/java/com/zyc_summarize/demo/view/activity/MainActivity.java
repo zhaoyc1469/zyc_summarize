@@ -1,4 +1,4 @@
-package com.zyc_summarize.demo.activity;
+package com.zyc_summarize.demo.view.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
