@@ -15,7 +15,6 @@ android {
     }
 
     defaultConfig {
-        applicationId "me.mvp.demo"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]

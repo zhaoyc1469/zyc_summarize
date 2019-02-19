@@ -2,7 +2,6 @@ package com.zyc_summarize.demo;
 
 import android.app.Activity;
 
-import com.zyc_summarize.demo.view.activity.MainActivity;
 import com.zyc_summarize.demo.view.activity.SplashActivity;
 
 import org.junit.Test;

@@ -8,7 +8,6 @@ import com.zyc_summarize.demo.R;
 import com.zyc_summarize.demo.databinding.ActivitySplashBinding;
 import com.zyc_summarize.demo.viewModel.SplashViewModel;
 
-
 public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashViewModel> {
 
 
