@@ -12,8 +12,4 @@ public class SplashModel extends BaseModel {
         super();
         this.viewModel = viewModel;
     }
-
-    private void getLog(){
-
-    }
 }
