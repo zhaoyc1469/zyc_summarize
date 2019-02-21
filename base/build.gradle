@@ -72,6 +72,10 @@ dependencies {
         exclude module: 'rxandroid'
         exclude module: 'rxlifecycle'
     }
+
+    //rxbinding
+    api(rootProject.ext.dependencies["rxbinding"])
+
     //network
     api(rootProject.ext.dependencies["retrofit"]) {
         exclude module: 'okhttp'

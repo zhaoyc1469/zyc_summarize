@@ -7,19 +7,15 @@
 
         <variable
             name="viewModel"
-            type="com.zyc_summarize.demo.viewModel.SplashViewModel" />
+            type="com.zyc_summarize.demo.viewModel.LoginViewModel" />
 
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.activity.SplashActivity">
+        tools:context=".view.activity.LoginActivity">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            binding:onClickCommand="@{viewModel.skipClickCommand}" />
     </android.support.constraint.ConstraintLayout>
 
 </layout>

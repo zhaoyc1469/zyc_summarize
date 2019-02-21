@@ -1,14 +1,13 @@
-package com.zyc_summarize.base.https;
+package com.zyc_summarize.demo;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 
-public interface Api {
-
-    String baseUrl = "";
-
-
+public interface EntranceApi {
 
     @GET("action/apiv2/banner?catalog=1")
     Observable<Void> demoGet();
+
+    @GET("action/apiv2/banner?catalog=1")
+    Observable<Void> login();
 }

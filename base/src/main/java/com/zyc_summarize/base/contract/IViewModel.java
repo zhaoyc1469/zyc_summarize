@@ -7,4 +7,6 @@ import com.trello.rxlifecycle2.LifecycleProvider;
 public interface IViewModel extends LifecycleObserver {
 
     LifecycleProvider getLifecycleProvider();
+
+    void requestFail(String reason);
 }

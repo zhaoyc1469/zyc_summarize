@@ -5,20 +5,21 @@ import android.os.Bundle;
 import com.zyc_summarize.base.base.BaseActivity;
 import com.zyc_summarize.demo.BR;
 import com.zyc_summarize.demo.R;
-import com.zyc_summarize.demo.databinding.ActivitySplashBinding;
-import com.zyc_summarize.demo.viewModel.SplashViewModel;
+import com.zyc_summarize.demo.databinding.ActivityRegisterBinding;
+import com.zyc_summarize.demo.viewModel.RegisterViewModel;
 
-public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashViewModel> {
+
+public class RegisterActivity extends BaseActivity<ActivityRegisterBinding, RegisterViewModel> {
 
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
-        return R.layout.activity_splash;
+        return R.layout.activity_register;
     }
+
 
     @Override
     protected int initVariableId() {
         return BR.viewModel;
     }
-
 }

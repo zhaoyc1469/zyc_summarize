@@ -1,18 +1,18 @@
 package com.zyc_summarize.base.base;
 
 import com.zyc_summarize.base.contract.IModel;
-import com.zyc_summarize.base.https.HttpUtil;
+import com.zyc_summarize.base.https.DataClient;
 
 
 public class BaseModel implements IModel {
 
-    protected HttpUtil mHttpUtil;
+    protected DataClient mDataClient;
 
     public BaseModel() {
-        mHttpUtil = HttpUtil.getInstance();
+        mDataClient = DataClient.getInstance();
     }
 
     void destroy() {
-        mHttpUtil = null;
+        mDataClient = null;
     }
 }
