@@ -45,7 +45,7 @@ dependencies {
     }
     api rootProject.ext.dependencies["annotations"]
 
-
+    
     //rx
     api rootProject.ext.dependencies["rxjava2"]
     api rootProject.ext.dependencies["lifecycle-extensions"]

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.zyc_summarize.demo.viewModel.LoginViewModel" />
+            type="com.app.entrance.viewModel.LoginViewModel" />
 
     </data>
 
