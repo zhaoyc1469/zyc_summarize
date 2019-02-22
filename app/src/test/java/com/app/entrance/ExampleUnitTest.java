@@ -23,15 +23,6 @@ public class ExampleUnitTest {
     }
     @Test
     public void addition_isCorrect1() {
-        MainActivity mainActivity = new MainActivity();
-        List<Activity> mActivityList = new ArrayList<>();
-        SplashActivity splashActivity = new SplashActivity();
-        mActivityList.add(splashActivity);
-        try {
-            mActivityList.remove(mainActivity);
 
-        } catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }
