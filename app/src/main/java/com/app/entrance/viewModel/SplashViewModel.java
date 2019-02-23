@@ -18,6 +18,6 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
     public BindingCommand skipClickCommand = new BindingCommand(this::skipAdvertising);
 
     private void skipAdvertising() {
-        uiChangeLiveData.getFinishEvent().postValue(null);
+        startActivity("/app/LoginActivity");
     }
 }

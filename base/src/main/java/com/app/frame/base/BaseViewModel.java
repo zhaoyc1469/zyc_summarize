@@ -3,8 +3,11 @@ package com.app.frame.base;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
+import android.os.Bundle;
+
+import com.app.frame.bus.bean.StartActBean;
 import com.trello.rxlifecycle2.LifecycleProvider;
-import com.app.frame.bus.Event.SingleLiveEvent;
+import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 
 import java.util.Map;
@@ -43,6 +46,14 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
 
     }
 
+    protected void startActivity(String url) {
+        uiChangeLiveData.startActivityEvent.postValue(new StartActBean(url));
+    }
+
+    protected void startActivity(String url, Bundle bundle) {
+        uiChangeLiveData.startActivityEvent.postValue(new StartActBean(url, bundle));
+    }
+
     @Override
     protected void onCleared() {
         super.onCleared();
@@ -62,7 +73,7 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     public final class UIChangeLiveData extends SingleLiveEvent {
         private SingleLiveEvent<String> showDialogEvent;
         private SingleLiveEvent<Void> dismissDialogEvent;
-        private SingleLiveEvent<Map<String, Object>> startActivityEvent;
+        private SingleLiveEvent<StartActBean> startActivityEvent;
         private SingleLiveEvent<Void> finishEvent;
         private SingleLiveEvent<Void> onBackPressedEvent;
 
@@ -74,7 +85,7 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
             return dismissDialogEvent = createLiveData(dismissDialogEvent);
         }
 
-        public SingleLiveEvent<Map<String, Object>> getStartActivityEvent() {
+        public SingleLiveEvent<StartActBean> getStartActivityEvent() {
             return startActivityEvent = createLiveData(startActivityEvent);
         }
 

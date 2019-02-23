@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package com.app.frame.bus.Event;
+package com.app.frame.bus.event;
 
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.MutableLiveData;

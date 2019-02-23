@@ -21,6 +21,13 @@ android {
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
         testInstrumentationRunner rootProject.ext.dependencies["androidJUnitRunner"]
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
     }
 }
 
@@ -30,6 +37,8 @@ dependencies {
     implementation rootProject.ext.dependencies["constraint"]
 
     testImplementation rootProject.ext.dependencies["junit"]
+
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 
     implementation project(path: ':base')
 }

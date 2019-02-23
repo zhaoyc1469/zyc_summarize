@@ -15,6 +15,13 @@ android {
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
+
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
     }
 
     dataBinding {
@@ -75,6 +82,9 @@ dependencies {
 
     //rxbinding
     api(rootProject.ext.dependencies["rxbinding"])
+
+    //arouter
+    api(rootProject.ext.dependencies["arouter-api"])
 
     //network
     api(rootProject.ext.dependencies["retrofit"]) {
