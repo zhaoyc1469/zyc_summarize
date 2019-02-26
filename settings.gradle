@@ -1,1 +1,1 @@
-include ':app', ':base', ':pay'
+include ':app', ':base', ':pay', ':book'
