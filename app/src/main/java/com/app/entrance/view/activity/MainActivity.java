@@ -14,6 +14,7 @@ import com.test.pay.easypay.EasyPay;
 import com.test.pay.easypay.callback.IPayCallback;
 import com.test.pay.wechatpay.wxpay.WXPay;
 import com.test.pay.wechatpay.wxpay.WXPayInfoImpli;
+import com.trello.rxlifecycle2.LifecycleProvider;
 
 
 @Route(path = "/app/MainActivity")

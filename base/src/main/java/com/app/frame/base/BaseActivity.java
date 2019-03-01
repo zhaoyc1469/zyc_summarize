@@ -10,6 +10,8 @@ import android.support.v4.app.FragmentActivity;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.frame.bus.bean.StartActBean;
+import com.app.frame.contract.IView;
+import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.ParameterizedType;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewModel extends BaseViewModel> extends RxAppCompatActivity {
+public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewModel extends BaseViewModel> extends RxAppCompatActivity implements IView {
 
     public DataBinding mDataBinding;
     public ViewModel mViewModel;
@@ -64,6 +66,12 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         mDataBinding.setVariable(viewModelId, mViewModel);
 
         mViewModel.injectLifecycleProvider(this);
+    }
+
+
+    @Override
+    public LifecycleProvider getLifecycleProvider() {
+        return this;
     }
 
     private void registerUIChangeLiveDataCallBack() {

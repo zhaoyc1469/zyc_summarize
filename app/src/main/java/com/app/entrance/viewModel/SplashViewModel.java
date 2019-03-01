@@ -1,12 +1,12 @@
 package com.app.entrance.viewModel;
 
+import com.app.entrance.contract.ISplashContract;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;
-import com.app.entrance.contract.ISplashViewModel;
 import com.app.entrance.model.SplashModel;
 
-public class SplashViewModel extends BaseViewModel<SplashModel> implements ISplashViewModel {
+public class SplashViewModel extends BaseViewModel<ISplashContract.ISplashView, SplashModel> implements ISplashContract.ISplashViewModel {
 
     @Override
     protected SplashModel initModel(IViewModel ViewModel) {

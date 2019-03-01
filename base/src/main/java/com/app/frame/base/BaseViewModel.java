@@ -6,27 +6,28 @@ import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 
 import com.app.frame.bus.bean.StartActBean;
+import com.app.frame.contract.IView;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 
 import java.util.Map;
 
-public class BaseViewModel<M extends BaseModel> extends ViewModel implements IViewModel {
+public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewModel implements IViewModel {
 
-    private LifecycleProvider lifecycle;
+    protected V mView;
     protected M mModel;
     protected UIChangeLiveData uiChangeLiveData;
 
 
-    void injectLifecycleProvider(LifecycleProvider lifecycle) {
-        this.lifecycle = lifecycle;
+    void injectLifecycleProvider(V mView) {
+        this.mView = mView;
         mModel = initModel(this);
     }
 
     @Override
     public LifecycleProvider getLifecycleProvider() {
-        return lifecycle;
+        return mView.getLifecycleProvider();
     }
 
     @Override

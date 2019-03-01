@@ -1,18 +1,18 @@
 package com.app.entrance.model;
 
+import com.app.entrance.contract.ILoginViewContract;
 import com.app.frame.base.BaseModel;
 import com.app.frame.utils.RxUtils;
 import com.app.entrance.EntranceApi;
-import com.app.entrance.contract.ILoginViewModel;
 
 import io.reactivex.functions.Consumer;
 
 
 public class LoginModel extends BaseModel {
 
-    private ILoginViewModel viewModel;
+    private ILoginViewContract.ILoginViewModel viewModel;
 
-    public LoginModel(ILoginViewModel viewModel) {
+    public LoginModel(ILoginViewContract.ILoginViewModel viewModel) {
         super();
         this.viewModel = viewModel;
     }

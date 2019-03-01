@@ -1,14 +1,14 @@
 package com.app.entrance.model;
 
-import com.app.entrance.contract.IForgetPwsViewModel;
+import com.app.entrance.contract.IForgetPwsContract;
 import com.app.frame.base.BaseModel;
 
 
 public class ForgetPwsModel extends BaseModel {
 
-    private IForgetPwsViewModel viewModel;
+    private IForgetPwsContract.IForgetPwsViewModel viewModel;
 
-    public ForgetPwsModel(IForgetPwsViewModel viewModel) {
+    public ForgetPwsModel(IForgetPwsContract.IForgetPwsViewModel viewModel) {
         super();
         this.viewModel = viewModel;
     }
