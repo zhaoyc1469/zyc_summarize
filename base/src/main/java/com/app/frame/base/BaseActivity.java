@@ -1,5 +1,6 @@
 package com.app.frame.base;
 
+import android.app.Activity;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -68,9 +69,13 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         mViewModel.injectLifecycleProvider(this);
     }
 
-
     @Override
     public LifecycleProvider getLifecycleProvider() {
+        return this;
+    }
+
+    @Override
+    public Activity getTheActivity() {
         return this;
     }
 
