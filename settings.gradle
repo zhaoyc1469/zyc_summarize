@@ -1,1 +1,1 @@
-include ':app', ':base', ':pay', ':books', ':room_db'
+include ':app', ':base', ':pay', ':books', ':room_db', ':share'
