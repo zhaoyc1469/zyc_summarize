@@ -3,6 +3,7 @@ package com.app.entrance.view.activity;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.app.entrance.contract.IMainContract;
 import com.app.entrance.viewModel.MainViewModel;
 import com.app.frame.base.BaseActivity;
 import com.app.entrance.BR;
@@ -14,11 +15,10 @@ import com.test.pay.easypay.EasyPay;
 import com.test.pay.easypay.callback.IPayCallback;
 import com.test.pay.wechatpay.wxpay.WXPay;
 import com.test.pay.wechatpay.wxpay.WXPayInfoImpli;
-import com.trello.rxlifecycle2.LifecycleProvider;
 
 
 @Route(path = "/app/MainActivity")
-public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
+public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements IMainContract.IMainView {
 
 
     @Override
@@ -31,10 +31,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         return BR.viewModel;
     }
 
-    private void wxpay(){
+    private void wxpay() {
         //实例化微信支付策略
         String wxAppId = "";
-        WXPay wxPay = WXPay.getInstance(this,wxAppId);
+        WXPay wxPay = WXPay.getInstance(this, wxAppId);
         //构造微信订单实体。一般都是由服务端直接返回。
         WXPayInfoImpli wxPayInfoImpli = new WXPayInfoImpli();
         wxPayInfoImpli.setTimestamp("");
@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         });
     }
 
-    private void alipay(){
+    private void alipay() {
         //实例化支付宝支付策略
         AliPay aliPay = new AliPay();
         //构造支付宝订单实体。一般都是由服务端直接返回。

@@ -1,6 +1,6 @@
 package com.app.entrance.model;
 
-import com.app.entrance.contract.ILoginViewContract;
+import com.app.entrance.contract.ILoginContract;
 import com.app.frame.base.BaseModel;
 import com.app.frame.utils.RxUtils;
 import com.app.entrance.EntranceApi;
@@ -8,10 +8,10 @@ import com.app.entrance.EntranceApi;
 import io.reactivex.functions.Consumer;
 
 
-public class LoginModel extends BaseModel<ILoginViewContract.ILoginViewModel>{
+public class LoginModel extends BaseModel<ILoginContract.ILoginViewModel>{
 
 
-    public LoginModel(ILoginViewContract.ILoginViewModel mViewModel) {
+    public LoginModel(ILoginContract.ILoginViewModel mViewModel) {
         super(mViewModel);
     }
 
