@@ -4,12 +4,9 @@ import com.app.entrance.contract.IForgetPwsContract;
 import com.app.frame.base.BaseModel;
 
 
-public class ForgetPwsModel extends BaseModel {
+public class ForgetPwsModel extends BaseModel<IForgetPwsContract.IForgetPwsViewModel> {
 
-    private IForgetPwsContract.IForgetPwsViewModel viewModel;
-
-    public ForgetPwsModel(IForgetPwsContract.IForgetPwsViewModel viewModel) {
-        super();
-        this.viewModel = viewModel;
+    public ForgetPwsModel(IForgetPwsContract.IForgetPwsViewModel mViewModel) {
+        super(mViewModel);
     }
 }

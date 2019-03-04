@@ -8,30 +8,28 @@ import com.app.entrance.EntranceApi;
 import io.reactivex.functions.Consumer;
 
 
-public class LoginModel extends BaseModel {
+public class LoginModel extends BaseModel<ILoginViewContract.ILoginViewModel>{
 
-    private ILoginViewContract.ILoginViewModel viewModel;
 
-    public LoginModel(ILoginViewContract.ILoginViewModel viewModel) {
-        super();
-        this.viewModel = viewModel;
+    public LoginModel(ILoginViewContract.ILoginViewModel mViewModel) {
+        super(mViewModel);
     }
 
     public void login() {
         mDataClient.createNet(EntranceApi.class)
                 .login()
-                .compose(RxUtils.bindToLifecycle(viewModel.getLifecycleProvider()))
+                .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
                 .compose(RxUtils.schedulersTransformer())
                 .subscribe(new Consumer() {
                     @Override
                     public void accept(Object o) throws Exception {
-                        viewModel.requestFail("");
+                        mViewModel.requestFail("");
 
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                        viewModel.loginSuccess();
+                        mViewModel.loginSuccess();
                     }
                 });
     }

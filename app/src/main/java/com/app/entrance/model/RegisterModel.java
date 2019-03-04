@@ -4,12 +4,9 @@ import com.app.entrance.contract.IRegisterContract;
 import com.app.frame.base.BaseModel;
 
 
-public class RegisterModel extends BaseModel {
+public class RegisterModel extends BaseModel<IRegisterContract.IRegisterViewModel> {
 
-    private IRegisterContract.IRegisterViewModel viewModel;
-
-    public RegisterModel(IRegisterContract.IRegisterViewModel viewModel) {
-        super();
-        this.viewModel = viewModel;
+    public RegisterModel(IRegisterContract.IRegisterViewModel mViewModel) {
+        super(mViewModel);
     }
 }

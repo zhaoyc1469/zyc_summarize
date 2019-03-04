@@ -4,12 +4,9 @@ import com.app.entrance.contract.IMainViewContract;
 import com.app.frame.base.BaseModel;
 
 
-public class MainModel extends BaseModel {
+public class MainModel extends BaseModel<IMainViewContract.IMainViewModel> {
 
-    private IMainViewContract.IMainViewModel viewModel;
-
-    public MainModel(IMainViewContract.IMainViewModel viewModel) {
-        super();
-        this.viewModel = viewModel;
+    public MainModel(IMainViewContract.IMainViewModel mViewModel) {
+        super(mViewModel);
     }
 }
