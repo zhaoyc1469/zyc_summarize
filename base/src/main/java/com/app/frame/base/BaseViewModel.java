@@ -48,11 +48,15 @@ public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewMode
     }
 
     protected void startActivity(String url) {
-        uiChangeLiveData.startActivityEvent.postValue(new StartActBean(url));
+        uiChangeLiveData.startActEvent.postValue(url);
     }
 
     protected void startActivity(String url, Bundle bundle) {
-        uiChangeLiveData.startActivityEvent.postValue(new StartActBean(url, bundle));
+        uiChangeLiveData.startActWithBeanEvent.postValue(new StartActBean(url, bundle));
+    }
+
+    protected void finish() {
+        uiChangeLiveData.finishEvent.postValue(null);
     }
 
     @Override
@@ -74,7 +78,8 @@ public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewMode
     public final class UIChangeLiveData extends SingleLiveEvent {
         private SingleLiveEvent<String> showDialogEvent;
         private SingleLiveEvent<Void> dismissDialogEvent;
-        private SingleLiveEvent<StartActBean> startActivityEvent;
+        private SingleLiveEvent<StartActBean> startActWithBeanEvent;
+        private SingleLiveEvent<String> startActEvent;
         private SingleLiveEvent<Void> finishEvent;
         private SingleLiveEvent<Void> onBackPressedEvent;
 
@@ -87,7 +92,11 @@ public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewMode
         }
 
         public SingleLiveEvent<StartActBean> getStartActivityEvent() {
-            return startActivityEvent = createLiveData(startActivityEvent);
+            return startActWithBeanEvent = createLiveData(startActWithBeanEvent);
+        }
+
+        public SingleLiveEvent<String> getStartActEvent() {
+            return startActEvent = createLiveData(startActEvent);
         }
 
         public SingleLiveEvent<Void> getFinishEvent() {

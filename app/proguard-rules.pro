@@ -101,34 +101,21 @@
 
 #Serializable 不被混淆并且enum 类也不被混淆
 -keepclassmembers class * implements java.io.Serializable {
-
     static final long serialVersionUID;
-
     private static final java.io.ObjectStreamField[] serialPersistentFields;
-
     !static !transient <fields>;
-
     !private <fields>;
-
     !private <methods>;
-
     private void writeObject(java.io.ObjectOutputStream);
-
     private void readObject(java.io.ObjectInputStream);
-
     java.lang.Object writeReplace();
-
     java.lang.Object readResolve();
-
 }
 
 #保持枚举 enum 类不被混淆 如果混淆报错，建议直接使用上面的 -keepclassmembers class * implements java.io.Serializable即可
 -keepclassmembers enum * {
-
   public static **[] values();
-
   public static ** valueOf(java.lang.String);
-
 }
 
 -keepclassmembers class * {
@@ -139,42 +126,4 @@
 -keepclassmembers class **.R$* {
     public static <fields>;
 }
-
-
-
-
-#----------------------------------------------------------------------------
-
-
-
-
-
-
-#忽略警告
-
-#-ignorewarning
-
-#----------记录生成的日志数据,gradle build时在本项目根目录输出---------
-
-#apk 包内所有 class 的内部结构
-
--dump class_files.txt
-
-#未混淆的类和成员
-
--printseeds seeds.txt
-
-#列出从 apk 中删除的代码
-
--printusage unused.txt
-
-#混淆前后的映射
-
--printmapping mapping.txt
-
-#----------------------------------------------------------------------------
-
-
-
-#---------------------------------默认保留区---------------------------------
 

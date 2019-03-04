@@ -94,6 +94,10 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
                 ARouter.getInstance().build(Objects.requireNonNull(startActBean).actUrl)
                         .withBundle(StartActBean.bundleKey, startActBean.bundle)
                         .navigation());
+        //跳入新页面
+        mViewModel.getUIChangeLiveData().getStartActEvent().observe(this, (Observer<String>) url ->
+                ARouter.getInstance().build(url)
+                        .navigation());
         //关闭界面
         mViewModel.getUIChangeLiveData().getFinishEvent().observe(this, (Observer<Void>) v -> finish());
         //关闭上一层
