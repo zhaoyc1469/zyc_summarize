@@ -11,7 +11,7 @@ public class BaseApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        registerActivityLifecycleCallbacks(new BaseActCallbacks());
+        registerActivityLifecycleCallbacks(new BaseActCallbacks(this));
 
         if (isDebug) {
             ARouter.openLog();
@@ -19,4 +19,6 @@ public class BaseApplication extends MultiDexApplication {
         }
         ARouter.init(this);
     }
+
+
 }

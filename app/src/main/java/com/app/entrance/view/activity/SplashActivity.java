@@ -22,4 +22,8 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding,SplashVie
         return BR.viewModel;
     }
 
+    @Override
+    protected void initData() {
+        mViewModel.initData();
+    }
 }

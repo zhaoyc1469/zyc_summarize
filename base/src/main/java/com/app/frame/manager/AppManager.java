@@ -3,6 +3,8 @@ package com.app.frame.manager;
 
 import android.app.Activity;
 
+import com.app.frame.application.BaseApplication;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,16 +19,28 @@ public class AppManager {
     private long resumed;
     private long stopped;
 
+    private BaseApplication baseApplication;
+
     private AppManager() {
         resumed = 0;
         stopped = 0;
     }
 
-    public static void init() {
+    private AppManager(BaseApplication baseApplication) {
+        this.baseApplication = baseApplication;
+        resumed = 0;
+        stopped = 0;
+    }
+
+    public BaseApplication getApp() {
+        return baseApplication;
+    }
+
+    public static void init(BaseApplication baseApplication) {
         if (sAppManager == null) {
             synchronized (AppManager.class) {
                 if (sAppManager == null) {
-                    sAppManager = new AppManager();
+                    sAppManager = new AppManager(baseApplication);
                 }
             }
         }

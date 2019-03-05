@@ -11,8 +11,8 @@ public class BaseModel<VM extends IViewModel>  implements IModel {
     protected DataClient mDataClient;
 
     public BaseModel(VM mViewModel) {
-        this.mViewModel = mViewModel;
         mDataClient = DataClient.getInstance();
+        this.mViewModel = mViewModel;
     }
 
     void destroy() {

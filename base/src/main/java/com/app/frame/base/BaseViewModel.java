@@ -1,5 +1,6 @@
 package com.app.frame.base;
 
+import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
@@ -13,21 +14,58 @@ import com.app.frame.contract.IViewModel;
 
 import java.util.Map;
 
-public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewModel implements IViewModel {
+public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewModel implements IViewModel {
 
     protected V mView;
     protected M mModel;
+    private LifecycleProvider lifecycle;
     protected UIChangeLiveData uiChangeLiveData;
 
 
     void injectLifecycleProvider(V mView) {
         this.mView = mView;
+        lifecycle = mView.getLifecycleProvider();
         mModel = initModel(this);
     }
 
     @Override
+    public void onAny(LifecycleOwner owner, Lifecycle.Event event) {
+
+    }
+
+    @Override
+    public void onCreate() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
     public LifecycleProvider getLifecycleProvider() {
-        return mView.getLifecycleProvider();
+        return lifecycle;
     }
 
     @Override
@@ -62,7 +100,7 @@ public class BaseViewModel<V extends IView,M extends BaseModel> extends ViewMode
     @Override
     protected void onCleared() {
         super.onCleared();
-        if (mModel != null){
+        if (mModel != null) {
             mModel.destroy();
         }
     }

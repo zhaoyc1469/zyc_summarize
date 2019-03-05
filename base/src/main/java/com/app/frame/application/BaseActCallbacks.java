@@ -8,8 +8,8 @@ import com.app.frame.manager.AppManager;
 
 public class BaseActCallbacks implements Application.ActivityLifecycleCallbacks {
 
-    BaseActCallbacks() {
-        AppManager.init();
+    BaseActCallbacks(BaseApplication baseApplication) {
+        AppManager.init(baseApplication);
     }
 
     @Override

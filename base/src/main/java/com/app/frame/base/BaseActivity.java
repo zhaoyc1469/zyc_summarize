@@ -65,6 +65,8 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         }
         //关联ViewModel
         mDataBinding.setVariable(viewModelId, mViewModel);
+        //订阅
+        getLifecycle().addObserver(mViewModel);
 
         mViewModel.injectLifecycleProvider(this);
     }
