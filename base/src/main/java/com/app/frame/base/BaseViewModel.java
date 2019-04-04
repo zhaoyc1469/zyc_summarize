@@ -6,13 +6,14 @@ import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModel;
 import android.os.Bundle;
 
-import com.app.frame.bus.bean.StartActBean;
 import com.app.frame.contract.IView;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 
+import java.util.HashMap;
 import java.util.Map;
+
 
 public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewModel implements IViewModel {
 
@@ -85,12 +86,28 @@ public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewMod
 
     }
 
-    protected void startActivity(String url) {
-        uiChangeLiveData.startActEvent.postValue(url);
+    /**
+     * 跳转页面
+     *
+     * @param clz 所跳转的目的Activity类
+     */
+    public void startActivity(Class<?> clz) {
+        startActivity(clz, null);
     }
 
-    protected void startActivity(String url, Bundle bundle) {
-        uiChangeLiveData.startActWithBeanEvent.postValue(new StartActBean(url, bundle));
+    /**
+     * 跳转页面
+     *
+     * @param clz    所跳转的目的Activity类
+     * @param bundle 跳转所携带的信息
+     */
+    public void startActivity(Class<?> clz, Bundle bundle) {
+        Map<String, Object> params = new HashMap<>();
+        params.put(ParameterField.CLASS, clz);
+        if (bundle != null) {
+            params.put(ParameterField.BUNDLE, bundle);
+        }
+        uiChangeLiveData.startActivityEvent.postValue(params);
     }
 
     protected void finish() {
@@ -116,8 +133,7 @@ public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewMod
     public final class UIChangeLiveData extends SingleLiveEvent {
         private SingleLiveEvent<String> showDialogEvent;
         private SingleLiveEvent<Void> dismissDialogEvent;
-        private SingleLiveEvent<StartActBean> startActWithBeanEvent;
-        private SingleLiveEvent<String> startActEvent;
+        private SingleLiveEvent<Map<String, Object>> startActivityEvent;
         private SingleLiveEvent<Void> finishEvent;
         private SingleLiveEvent<Void> onBackPressedEvent;
 
@@ -129,12 +145,8 @@ public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewMod
             return dismissDialogEvent = createLiveData(dismissDialogEvent);
         }
 
-        public SingleLiveEvent<StartActBean> getStartActivityEvent() {
-            return startActWithBeanEvent = createLiveData(startActWithBeanEvent);
-        }
-
-        public SingleLiveEvent<String> getStartActEvent() {
-            return startActEvent = createLiveData(startActEvent);
+        public SingleLiveEvent<Map<String, Object>> getStartActivityEvent() {
+            return startActivityEvent = createLiveData(startActivityEvent);
         }
 
         public SingleLiveEvent<Void> getFinishEvent() {
@@ -156,5 +168,10 @@ public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewMod
         public void observe(LifecycleOwner owner, Observer observer) {
             super.observe(owner, observer);
         }
+    }
+    public static final class ParameterField {
+        public static String CLASS = "CLASS";
+        public static String CANONICAL_NAME = "CANONICAL_NAME";
+        public static String BUNDLE = "BUNDLE";
     }
 }

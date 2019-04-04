@@ -16,8 +16,6 @@ import com.test.pay.easypay.callback.IPayCallback;
 import com.test.pay.wechatpay.wxpay.WXPay;
 import com.test.pay.wechatpay.wxpay.WXPayInfoImpli;
 
-
-@Route(path = "/app/MainActivity")
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements IMainContract.IMainView {
 
 

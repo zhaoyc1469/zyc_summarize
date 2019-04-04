@@ -23,7 +23,7 @@ public class RxUtils {
      * 线程调度器
      */
     public static ObservableTransformer schedulersTransformer() {
-        return upstream -> upstream.subscribeOn(Schedulers.io())
+        return upstream -> upstream.subscribeOn(Schedulers.from(ThreadPoolTools.getInstance().getExecutorService()))
                 .observeOn(AndroidSchedulers.mainThread());
     }
 }

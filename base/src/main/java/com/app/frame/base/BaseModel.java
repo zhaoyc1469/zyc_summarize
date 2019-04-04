@@ -2,20 +2,20 @@ package com.app.frame.base;
 
 import com.app.frame.contract.IModel;
 import com.app.frame.contract.IViewModel;
-import com.app.frame.https.DataClient;
+import com.app.frame.https.RetrofitClient;
 
 
 public class BaseModel<VM extends IViewModel>  implements IModel {
 
     protected VM mViewModel;
-    protected DataClient mDataClient;
+    protected RetrofitClient mRetrofitClient;
 
     public BaseModel(VM mViewModel) {
-        mDataClient = DataClient.getInstance();
+        mRetrofitClient = RetrofitClient.getInstance();
         this.mViewModel = mViewModel;
     }
 
     void destroy() {
-        mDataClient = null;
+        mRetrofitClient = null;
     }
 }

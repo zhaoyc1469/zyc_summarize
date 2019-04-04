@@ -5,6 +5,8 @@ import com.app.frame.base.BaseModel;
 import com.app.frame.utils.RxUtils;
 import com.app.entrance.EntranceApi;
 
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
@@ -16,20 +18,29 @@ public class LoginModel extends BaseModel<ILoginContract.ILoginViewModel>{
     }
 
     public void login() {
-        mDataClient.createNet(EntranceApi.class)
+        mRetrofitClient.createNet(EntranceApi.class)
                 .login()
                 .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
                 .compose(RxUtils.schedulersTransformer())
-                .subscribe(new Consumer() {
+                .subscribe(new Observer() {
                     @Override
-                    public void accept(Object o) throws Exception {
-                        mViewModel.requestFail("");
+                    public void onSubscribe(Disposable d) {
 
                     }
-                }, new Consumer<Throwable>() {
+
                     @Override
-                    public void accept(Throwable throwable) throws Exception {
+                    public void onNext(Object o) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
                         mViewModel.loginSuccess();
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.app.entrance.contract.ILoginContract;
 import com.app.entrance.model.LoginModel;
+import com.app.entrance.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingAction;
 import com.app.frame.binding.command.BindingCommand;
@@ -45,7 +46,7 @@ public class LoginViewModel extends BaseViewModel<ILoginContract.ILoginView, Log
 
     @Override
     public void loginSuccess() {
-        startActivity("/app/MainActivity");
+        startActivity(MainActivity.class);
         finish();
     }
 

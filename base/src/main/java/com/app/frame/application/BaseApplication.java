@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 
 public class BaseApplication extends MultiDexApplication {
 
-    private boolean isDebug = false;
+    public final static boolean isDebug = false;
 
     @Override
     public void onCreate() {

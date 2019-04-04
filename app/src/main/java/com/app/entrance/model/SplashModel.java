@@ -6,8 +6,6 @@ import com.app.frame.base.BaseModel;
 import com.app.frame.utils.RxUtils;
 import com.app.frame.utils.VersionUtils;
 
-import io.reactivex.functions.Consumer;
-
 
 public class SplashModel extends BaseModel<ISplashContract.ISplashViewModel> {
 
@@ -17,7 +15,7 @@ public class SplashModel extends BaseModel<ISplashContract.ISplashViewModel> {
 
 
     public void checkVersion() {
-        mDataClient.createNet(EntranceApi.class)
+        mRetrofitClient.createNet(EntranceApi.class)
                 .checkVersion(VersionUtils.getAppVersionName())
                 .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
                 .compose(RxUtils.schedulersTransformer())

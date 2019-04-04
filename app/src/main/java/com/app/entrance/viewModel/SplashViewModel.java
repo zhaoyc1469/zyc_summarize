@@ -1,10 +1,13 @@
 package com.app.entrance.viewModel;
 
 import android.databinding.ObservableField;
+import android.os.Bundle;
 
 import com.app.entrance.contract.ISplashContract;
+import com.app.entrance.view.activity.LoginActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
+import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 import com.app.entrance.model.SplashModel;
 
@@ -49,6 +52,9 @@ public class SplashViewModel extends BaseViewModel<ISplashContract.ISplashView, 
     }
 
     private void skipAdvertising() {
-        startActivity("/app/LoginActivity");
+//        uiChangeLiveData.getShowDialogEvent().postValue("/app/LoginActivity");
+        startActivity(LoginActivity.class);
+//        startActivity("/app/LoginActivity", new Bundle());
+//        finish();
     }
 }
