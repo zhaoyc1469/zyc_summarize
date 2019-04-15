@@ -21,6 +21,11 @@ public class LoginViewModel extends BaseViewModel<ILoginContract.ILoginView, Log
         return new LoginModel(this);
     }
 
+    @Override
+    protected void initData() {
+        userName.set(mModel.getUserName());
+        password.set(mModel.getPassword());
+    }
 
     //用户名的绑定
     public ObservableField<String> userName = new ObservableField<>("");
@@ -46,6 +51,8 @@ public class LoginViewModel extends BaseViewModel<ILoginContract.ILoginView, Log
 
     @Override
     public void loginSuccess() {
+        mModel.setUserName(userName.get());
+        mModel.setPassword(password.get());
         startActivity(MainActivity.class);
         finish();
     }

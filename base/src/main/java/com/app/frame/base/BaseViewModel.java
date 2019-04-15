@@ -27,6 +27,11 @@ public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewMod
         this.mView = mView;
         lifecycle = mView.getLifecycleProvider();
         mModel = initModel(this);
+        initData();
+    }
+
+    protected void initData() {
+
     }
 
     @Override

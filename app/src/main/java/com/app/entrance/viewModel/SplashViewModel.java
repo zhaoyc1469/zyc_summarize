@@ -3,6 +3,7 @@ package com.app.entrance.viewModel;
 import android.databinding.ObservableField;
 import android.os.Bundle;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.entrance.contract.ISplashContract;
 import com.app.entrance.view.activity.LoginActivity;
 import com.app.frame.base.BaseViewModel;
@@ -53,8 +54,8 @@ public class SplashViewModel extends BaseViewModel<ISplashContract.ISplashView, 
 
     private void skipAdvertising() {
 //        uiChangeLiveData.getShowDialogEvent().postValue("/app/LoginActivity");
-        startActivity(LoginActivity.class);
-//        startActivity("/app/LoginActivity", new Bundle());
-//        finish();
+        ARouter.getInstance().build("/app/LoginActivity")
+                .navigation();
+//        startActivity(LoginActivity.class);
     }
 }

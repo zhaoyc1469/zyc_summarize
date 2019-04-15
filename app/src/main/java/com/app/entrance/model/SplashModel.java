@@ -3,6 +3,7 @@ package com.app.entrance.model;
 import com.app.entrance.EntranceApi;
 import com.app.entrance.contract.ISplashContract;
 import com.app.frame.base.BaseModel;
+import com.app.frame.https.RetrofitClient;
 import com.app.frame.utils.RxUtils;
 import com.app.frame.utils.VersionUtils;
 
@@ -15,7 +16,7 @@ public class SplashModel extends BaseModel<ISplashContract.ISplashViewModel> {
 
 
     public void checkVersion() {
-        mRetrofitClient.createNet(EntranceApi.class)
+        RetrofitClient.getInstance().createNet(EntranceApi.class)
                 .checkVersion(VersionUtils.getAppVersionName())
                 .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
                 .compose(RxUtils.schedulersTransformer())

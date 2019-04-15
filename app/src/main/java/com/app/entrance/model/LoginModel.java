@@ -2,6 +2,8 @@ package com.app.entrance.model;
 
 import com.app.entrance.contract.ILoginContract;
 import com.app.frame.base.BaseModel;
+import com.app.frame.https.LocalClient;
+import com.app.frame.https.RetrofitClient;
 import com.app.frame.utils.RxUtils;
 import com.app.entrance.EntranceApi;
 
@@ -18,7 +20,7 @@ public class LoginModel extends BaseModel<ILoginContract.ILoginViewModel>{
     }
 
     public void login() {
-        mRetrofitClient.createNet(EntranceApi.class)
+        RetrofitClient.getInstance().createNet(EntranceApi.class)
                 .login()
                 .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
                 .compose(RxUtils.schedulersTransformer())
@@ -43,5 +45,14 @@ public class LoginModel extends BaseModel<ILoginContract.ILoginViewModel>{
 
                     }
                 });
+    }
+
+
+    public void setUserName(String userName) {
+        LocalClient.getInstance().setUserName(userName);
+    }
+
+    public void setPassword(String password) {
+        LocalClient.getInstance().setPassword(password);
     }
 }

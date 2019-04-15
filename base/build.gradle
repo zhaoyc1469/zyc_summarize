@@ -108,4 +108,6 @@ dependencies {
 
     //分包方案
     api rootProject.ext.dependencies["multidex"]
+    //存储
+    api rootProject.ext.dependencies["mmkv"]
 }

@@ -12,7 +12,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.app.frame.https.HttpConstant.RELEASE_URL;
 
 public class RetrofitClient {
 
@@ -36,7 +35,7 @@ public class RetrofitClient {
 
     public static RetrofitClient getInstance() {
         if (retrofitClient == null) {
-            synchronized (AppManager.class) {
+            synchronized (RetrofitClient.class) {
                 if (retrofitClient == null) {
                     retrofitClient = new RetrofitClient();
                 }
