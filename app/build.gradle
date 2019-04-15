@@ -42,5 +42,5 @@ dependencies {
 
     implementation project(path: ':base')
 
-    implementation project(path: ':pay')
+    implementation project(path: ':function')
 }

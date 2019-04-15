@@ -2,19 +2,18 @@ package com.app.entrance.view.activity;
 
 import android.os.Bundle;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.entrance.contract.IMainContract;
 import com.app.entrance.viewModel.MainViewModel;
 import com.app.frame.base.BaseActivity;
 import com.app.entrance.BR;
 import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
-import com.test.pay.alipay.AliPay;
-import com.test.pay.alipay.AlipayInfoImpli;
-import com.test.pay.easypay.EasyPay;
-import com.test.pay.easypay.callback.IPayCallback;
-import com.test.pay.wechatpay.wxpay.WXPay;
-import com.test.pay.wechatpay.wxpay.WXPayInfoImpli;
+import com.common.function.pay.alipay.AliPay;
+import com.common.function.pay.alipay.AlipayInfoImpli;
+import com.common.function.pay.easypay.EasyPay;
+import com.common.function.pay.easypay.callback.IPayCallback;
+import com.common.function.pay.wechatpay.wxpay.WXPay;
+import com.common.function.pay.wechatpay.wxpay.WXPayInfoImpli;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> implements IMainContract.IMainView {
 
