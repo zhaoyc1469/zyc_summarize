@@ -9,7 +9,6 @@ import com.app.entrance.EntranceApi;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
 
 public class LoginModel extends BaseModel<ILoginViewModel>{

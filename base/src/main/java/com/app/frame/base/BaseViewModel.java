@@ -174,7 +174,6 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     }
     public static final class ParameterField {
         public static String CLASS = "CLASS";
-        public static String CANONICAL_NAME = "CANONICAL_NAME";
         public static String BUNDLE = "BUNDLE";
     }
 }

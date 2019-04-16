@@ -35,15 +35,21 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         registerUIChangeLiveDataCallBack();
         //初始化数据方法
         initData();
+        //页面事件监听的方法，一般用于ViewModel层转到View层的事件注册
+        initViewObservable();
         //注册监听
         mViewModel.registerRxBus();
+    }
+
+    protected void initParam() {
+
     }
 
     protected void initData() {
 
     }
 
-    protected void initParam() {
+    protected void initViewObservable() {
 
     }
 

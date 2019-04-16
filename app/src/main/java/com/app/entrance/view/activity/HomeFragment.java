@@ -1,23 +1,21 @@
-package com.app.entrance.view.fragment;
+package com.app.entrance.view.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.app.entrance.databinding.FragmentMineBinding;
 import com.app.entrance.BR;
 import com.app.entrance.R;
-import com.app.entrance.viewModel.MineFrgViewModel;
+import com.app.entrance.databinding.ActivityHomeBinding;
+import com.app.entrance.viewModel.HomeFrgViewModel;
 import com.app.frame.base.BaseFragment;
 
-@Route(path = "/app/MineFragment")
-public class MineFragment extends BaseFragment<FragmentMineBinding, MineFrgViewModel> {
+public class HomeFragment extends BaseFragment<ActivityHomeBinding, HomeFrgViewModel> {
 
 
     @Override
     public int initContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return R.layout.fragment_mine;
+        return R.layout.activity_home;
     }
 
 

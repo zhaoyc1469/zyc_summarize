@@ -7,7 +7,11 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.frame.contract.IView;
@@ -28,21 +32,40 @@ public abstract class BaseFragment <DataBinding extends ViewDataBinding, ViewMod
         super.onCreate(savedInstanceState);
         //页面接受的参数方法
         initParam();
-        //私有的初始化DataBinding和ViewModel方法
-        initDataBinding(savedInstanceState);
-        //注册ViewModel与View的契约UI回调事件
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mDataBinding = DataBindingUtil.inflate(inflater, initContentView(inflater, container, savedInstanceState), container, false);
+        return mDataBinding.getRoot();
+    }
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //私有的初始化Databinding和ViewModel方法
+        initViewDataBinding();
+        //私有的ViewModel与View的契约事件回调逻辑
         registerUIChangeLiveDataCallBack();
-        //初始化数据方法
+        //页面数据初始化方法
         initData();
-        //注册监听
+        //页面事件监听的方法，一般用于ViewModel层转到View层的事件注册
+        initViewObservable();
+        //注册RxBus
         mViewModel.registerRxBus();
+    }
+
+    protected void initParam() {
+
     }
 
     protected void initData() {
 
     }
 
-    protected void initParam() {
+    protected void initViewObservable() {
 
     }
 
@@ -69,8 +92,7 @@ public abstract class BaseFragment <DataBinding extends ViewDataBinding, ViewMod
         startActivity(intent);
     }
 
-    private void initDataBinding(Bundle savedInstanceState) {
-        mDataBinding = DataBindingUtil.setContentView(getTheActivity(), initContentView(savedInstanceState));
+    private void initViewDataBinding() {
         int viewModelId = initVariableId();
         if (mViewModel == null) {
             Class modelClass;
@@ -127,6 +149,12 @@ public abstract class BaseFragment <DataBinding extends ViewDataBinding, ViewMod
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        //解除ViewModel生命周期感应
         getLifecycle().removeObserver(mViewModel);
         if (mViewModel != null) {
             mViewModel.removeRxBus();
@@ -136,7 +164,7 @@ public abstract class BaseFragment <DataBinding extends ViewDataBinding, ViewMod
         }
     }
 
-    public abstract int initContentView(Bundle savedInstanceState);
+    public abstract int initContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState);
 
     protected abstract int initVariableId();
 }

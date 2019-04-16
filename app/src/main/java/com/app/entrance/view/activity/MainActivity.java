@@ -1,24 +1,25 @@
 package com.app.entrance.view.activity;
 
-import android.arch.lifecycle.Observer;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
 
+import com.app.entrance.view.fragment.MineFragment;
 import com.app.entrance.viewModel.MainViewModel;
 import com.app.frame.base.BaseActivity;
 import com.app.entrance.BR;
 import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
-import com.common.function.pay.alipay.AliPay;
-import com.common.function.pay.alipay.AlipayInfoImpli;
-import com.common.function.pay.easypay.EasyPay;
-import com.common.function.pay.easypay.callback.IPayCallback;
-import com.common.function.pay.wechatpay.wxpay.WXPay;
-import com.common.function.pay.wechatpay.wxpay.WXPayInfoImpli;
+import com.app.frame.base.BaseFragment;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
 
+    private BaseFragment currentFragment;
+    private MineFragment mineFragment;
+    private HomeFragment homeFragment;
+    private FragmentManager fragManager;
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
@@ -32,15 +33,58 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     protected void initData() {
+        fragManager = getSupportFragmentManager();
 
+        View viewById = findViewById(R.id.fl_content);
+    }
+
+    @Override
+    protected void initViewObservable() {
         mViewModel.getBottomClickEvent().observe(this, position -> {
-            Toast.makeText(this,"215432512", Toast.LENGTH_SHORT).show();
+            if (position == null)
+                return;
+
+            tabFragment(position);
+
         });
     }
 
-
-
-
+    private void tabFragment(Integer position) {
+        FragmentTransaction fragTrn = fragManager.beginTransaction();
+        if (currentFragment != null) {
+            fragTrn.hide(currentFragment);
+        }
+        switch (position) {
+            case 1:
+                if (homeFragment == null) {
+                    homeFragment = new HomeFragment();
+                    currentFragment = homeFragment;
+                    fragTrn.add(R.id.fl_content, homeFragment);
+                } else {
+                    currentFragment = homeFragment;
+                    fragTrn.show(homeFragment);
+                }
+                fragTrn.commit();
+                break;
+            case 2:
+//            Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+//            Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                if (mineFragment == null) {
+                    mineFragment = new MineFragment();
+                    currentFragment = mineFragment;
+                    fragTrn.add(R.id.fl_content, mineFragment);
+                } else {
+                    currentFragment = mineFragment;
+                    fragTrn.show(mineFragment);
+                }
+                fragTrn.commit();
+                break;
+        }
+    }
 
 
 //    private void wxpay() {
