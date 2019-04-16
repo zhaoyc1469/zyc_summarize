@@ -31,6 +31,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    binding:onClickCommand="@{viewModel.cameraClick}"
+                    android:text="试镜"/>
+
             </LinearLayout>
 
         </ScrollView>
