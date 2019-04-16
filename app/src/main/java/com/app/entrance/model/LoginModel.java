@@ -1,6 +1,6 @@
 package com.app.entrance.model;
 
-import com.app.entrance.contract.ILoginContract;
+import com.app.entrance.contract.ILoginViewModel;
 import com.app.frame.base.BaseModel;
 import com.app.frame.https.LocalClient;
 import com.app.frame.https.RetrofitClient;
@@ -12,10 +12,10 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 
-public class LoginModel extends BaseModel<ILoginContract.ILoginViewModel>{
+public class LoginModel extends BaseModel<ILoginViewModel>{
 
 
-    public LoginModel(ILoginContract.ILoginViewModel mViewModel) {
+    public LoginModel(ILoginViewModel mViewModel) {
         super(mViewModel);
     }
 

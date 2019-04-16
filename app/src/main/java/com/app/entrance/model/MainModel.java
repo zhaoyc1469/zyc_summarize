@@ -1,12 +1,12 @@
 package com.app.entrance.model;
 
-import com.app.entrance.contract.IMainContract;
+import com.app.entrance.contract.IMainViewModel;
 import com.app.frame.base.BaseModel;
 
 
-public class MainModel extends BaseModel<IMainContract.IMainViewModel> {
+public class MainModel extends BaseModel<IMainViewModel> {
 
-    public MainModel(IMainContract.IMainViewModel mViewModel) {
+    public MainModel(IMainViewModel mViewModel) {
         super(mViewModel);
     }
 }

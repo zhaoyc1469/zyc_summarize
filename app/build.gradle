@@ -36,6 +36,7 @@ dependencies {
     //support
     implementation rootProject.ext.dependencies["constraint"]
 
+    implementation 'com.android.support:support-v4:28.0.0'
     testImplementation rootProject.ext.dependencies["junit"]
 
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]

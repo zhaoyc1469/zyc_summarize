@@ -15,16 +15,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class BaseViewModel<V extends IView, M extends BaseModel> extends ViewModel implements IViewModel {
+public class BaseViewModel<M extends BaseModel> extends ViewModel implements IViewModel {
 
-    protected V mView;
     protected M mModel;
     private LifecycleProvider lifecycle;
     protected UIChangeLiveData uiChangeLiveData;
 
 
-    void injectLifecycleProvider(V mView) {
-        this.mView = mView;
+    void injectLifecycleProvider(IView mView) {
         lifecycle = mView.getLifecycleProvider();
         mModel = initModel(this);
         initData();

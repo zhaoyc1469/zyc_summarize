@@ -3,7 +3,6 @@ package com.app.entrance.view.activity;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.app.entrance.contract.ILoginContract;
 import com.app.frame.base.BaseActivity;
 import com.app.entrance.viewModel.LoginViewModel;
 import com.app.frame.manager.AppManager;
@@ -12,7 +11,7 @@ import com.app.entrance.BR;
 import com.app.entrance.databinding.ActivityLoginBinding;
 
 @Route(path = "/app/LoginActivity")
-public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> implements ILoginContract.ILoginView {
+public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewModel> {
 
 
     @Override

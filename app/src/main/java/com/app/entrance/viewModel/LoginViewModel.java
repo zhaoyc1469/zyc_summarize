@@ -5,7 +5,7 @@ import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.view.View;
 
-import com.app.entrance.contract.ILoginContract;
+import com.app.entrance.contract.ILoginViewModel;
 import com.app.entrance.model.LoginModel;
 import com.app.entrance.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
@@ -14,7 +14,7 @@ import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.binding.command.BindingConsumer;
 import com.app.frame.contract.IViewModel;
 
-public class LoginViewModel extends BaseViewModel<ILoginContract.ILoginView, LoginModel> implements ILoginContract.ILoginViewModel {
+public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginViewModel {
 
     @Override
     protected LoginModel initModel(IViewModel ViewModel) {

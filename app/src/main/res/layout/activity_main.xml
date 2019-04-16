@@ -76,6 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/color_3A3A3A"
+            app:onClickCommand="@{viewModel.mineClick}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/rl_dynamic"

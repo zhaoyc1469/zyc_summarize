@@ -1,12 +1,12 @@
 package com.app.entrance.model;
 
-import com.app.entrance.contract.IRegisterContract;
+import com.app.entrance.contract.IRegisterViewModel;
 import com.app.frame.base.BaseModel;
 
 
-public class RegisterModel extends BaseModel<IRegisterContract.IRegisterViewModel> {
+public class RegisterModel extends BaseModel<IRegisterViewModel> {
 
-    public RegisterModel(IRegisterContract.IRegisterViewModel mViewModel) {
+    public RegisterModel(IRegisterViewModel mViewModel) {
         super(mViewModel);
     }
 }

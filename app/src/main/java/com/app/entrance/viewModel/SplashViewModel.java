@@ -1,14 +1,11 @@
 package com.app.entrance.viewModel;
 
 import android.databinding.ObservableField;
-import android.os.Bundle;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.app.entrance.contract.ISplashContract;
-import com.app.entrance.view.activity.LoginActivity;
+import com.app.entrance.contract.ISplashViewModel;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
-import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 import com.app.entrance.model.SplashModel;
 
@@ -19,7 +16,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
-public class SplashViewModel extends BaseViewModel<ISplashContract.ISplashView, SplashModel> implements ISplashContract.ISplashViewModel {
+public class SplashViewModel extends BaseViewModel<SplashModel> implements ISplashViewModel {
 
     private Disposable skipDisposable;
 
