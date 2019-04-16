@@ -7,33 +7,23 @@
 
         <variable
             name="viewModel"
-            type="com.app.entrance.viewModel.MineFrgViewModel" />
+            type="com.app.entrance.viewModel.HomeFrgViewModel" />
 
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragment.MineFragment">
+        tools:context=".view.fragment.HomeFragment">
 
-        <ScrollView
-            android:id="@+id/sl_content"
+        <android.support.design.widget.CoordinatorLayout
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            binding:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="200dp"
             binding:layout_constraintEnd_toEndOf="parent"
             binding:layout_constraintStart_toStartOf="parent"
             binding:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/ll_content"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
-
-        </ScrollView>
+        </android.support.design.widget.CoordinatorLayout>
 
     </android.support.constraint.ConstraintLayout>
 
