@@ -1,4 +1,4 @@
-package com.app.entrance.view.activity;
+package com.app.entrance.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

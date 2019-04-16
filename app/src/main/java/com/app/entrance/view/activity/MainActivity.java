@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.app.entrance.view.fragment.HomeFragment;
 import com.app.entrance.view.fragment.MineFragment;
 import com.app.entrance.viewModel.MainViewModel;
 import com.app.frame.base.BaseActivity;
