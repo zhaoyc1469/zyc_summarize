@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     protected void initData() {
-        fragManager = getSupportFragmentManager();;
+        fragManager = getSupportFragmentManager();
     }
 
     @Override
