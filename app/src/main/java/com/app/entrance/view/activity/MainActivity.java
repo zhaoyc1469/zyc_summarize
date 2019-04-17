@@ -3,7 +3,6 @@ package com.app.entrance.view.activity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 
 import com.app.entrance.view.fragment.HomeFragment;
 import com.app.entrance.view.fragment.MineFragment;
@@ -34,19 +33,14 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
     @Override
     protected void initData() {
-        fragManager = getSupportFragmentManager();
-
-        View viewById = findViewById(R.id.fl_content);
+        fragManager = getSupportFragmentManager();;
     }
 
     @Override
     protected void initViewObservable() {
         mViewModel.getBottomClickEvent().observe(this, position -> {
-            if (position == null)
-                return;
-
+            if (position == null) return;
             tabFragment(position);
-
         });
     }
 

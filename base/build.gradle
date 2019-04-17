@@ -83,6 +83,9 @@ dependencies {
     //rxbinding
     api(rootProject.ext.dependencies["rxbinding"])
 
+    //rxpermissions
+    api(rootProject.ext.dependencies["rxpermissions"])
+
     //arouter
     api(rootProject.ext.dependencies["arouter-api"])
 

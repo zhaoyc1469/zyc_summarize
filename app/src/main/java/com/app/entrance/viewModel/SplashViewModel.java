@@ -2,8 +2,8 @@ package com.app.entrance.viewModel;
 
 import android.databinding.ObservableField;
 
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.entrance.contract.ISplashViewModel;
+import com.app.entrance.view.activity.LoginActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;
@@ -50,9 +50,6 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
     }
 
     private void skipAdvertising() {
-//        uiChangeLiveData.getShowDialogEvent().postValue("/app/LoginActivity");
-        ARouter.getInstance().build("/app/LoginActivity")
-                .navigation();
-//        startActivity(LoginActivity.class);
+        startActivity("/app/LoginActivity");
     }
 }

@@ -112,26 +112,23 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
 
         //加载对话框显示
         mViewModel.getUIChangeLiveData().getShowDialogEvent().observe(this, (Observer<String>) title -> {
-                ARouter.getInstance().build(title)
-                        .navigation();
+
         });
+        //跳转地址
+        mViewModel.getUIChangeLiveData().getStartARountUrl().observe(this, (Observer<String>) url ->
+                ARouter.getInstance().build(url).navigation(this));
         //加载对话框消失
         mViewModel.getUIChangeLiveData().getDismissDialogEvent().observe(this, (Observer<Void>) v -> {
 
         });
         //跳入新页面
-        mViewModel.getUIChangeLiveData().getStartActivityEvent().observe(this, new Observer<Map<String, Object>>() {
-            @Override
-            public void onChanged(Map<String, Object> params) {
-                Class<?> clz = (Class<?>) params.get(BaseViewModel.ParameterField.CLASS);
-                Bundle bundle = (Bundle) params.get(BaseViewModel.ParameterField.BUNDLE);
-                startActivity(clz, bundle);
-            }
+        mViewModel.getUIChangeLiveData().getStartActivityEvent().observe(this, (Observer<Map<String, Object>>) params -> {
+            Class<?> clz = (Class<?>) params.get(BaseViewModel.ParameterField.CLASS);
+            Bundle bundle = (Bundle) params.get(BaseViewModel.ParameterField.BUNDLE);
+            startActivity(clz, bundle);
         });
         //关闭界面
-        mViewModel.getUIChangeLiveData().getFinishEvent().observe(this, (Observer<Void>) v -> {
-            finish();
-        });
+        mViewModel.getUIChangeLiveData().getFinishEvent().observe(this, (Observer<Void>) v -> finish());
         //关闭上一层
         mViewModel.getUIChangeLiveData().getOnBackPressedEvent().observe(this, (Observer<Void>) v -> onBackPressed());
     }

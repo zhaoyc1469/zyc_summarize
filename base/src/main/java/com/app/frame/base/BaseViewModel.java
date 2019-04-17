@@ -97,6 +97,14 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     public void startActivity(Class<?> clz) {
         startActivity(clz, null);
     }
+    /**
+     * 跳转页面
+     *
+     * @param url 所跳转的目的 ARouter t地址
+     */
+    public void startActivity(String url) {
+        uiChangeLiveData.startARouterUrl.postValue(url);
+    }
 
     /**
      * 跳转页面
@@ -135,6 +143,7 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
 
     public final class UIChangeLiveData extends SingleLiveEvent {
         private SingleLiveEvent<String> showDialogEvent;
+        private SingleLiveEvent<String> startARouterUrl;
         private SingleLiveEvent<Void> dismissDialogEvent;
         private SingleLiveEvent<Map<String, Object>> startActivityEvent;
         private SingleLiveEvent<Void> finishEvent;
@@ -142,6 +151,10 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
 
         public SingleLiveEvent<String> getShowDialogEvent() {
             return showDialogEvent = createLiveData(showDialogEvent);
+        }
+
+        public SingleLiveEvent<String> getStartARountUrl() {
+            return startARouterUrl = createLiveData(startARouterUrl);
         }
 
         public SingleLiveEvent<Void> getDismissDialogEvent() {

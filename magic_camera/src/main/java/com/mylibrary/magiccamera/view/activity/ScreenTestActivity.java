@@ -1,5 +1,6 @@
 package com.mylibrary.magiccamera.view.activity;
 
+import android.hardware.Camera;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -22,5 +23,10 @@ public class ScreenTestActivity extends BaseActivity<ActivityScreenTestBinding, 
     @Override
     protected int initVariableId() {
         return BR.viewModel;
+    }
+
+    @Override
+    protected void initData() {
+        Camera.open();
     }
 }
