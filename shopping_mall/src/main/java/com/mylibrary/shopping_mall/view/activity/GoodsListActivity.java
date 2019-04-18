@@ -6,16 +6,16 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.frame.base.BaseActivity;
 import com.mylibrary.shopping_mall.BR;
 import com.mylibrary.shopping_mall.R;
-import com.mylibrary.shopping_mall.databinding.ActivityGoodsDetailBinding;
-import com.mylibrary.shopping_mall.viewModel.GoodsDetailViewModel;
+import com.mylibrary.shopping_mall.databinding.ActivityGoodsListBinding;
+import com.mylibrary.shopping_mall.viewModel.GoodsListViewModel;
 
-@Route(path = "/shop/GoodsDetailActivity")
-public class GoodsDetailActivity extends BaseActivity<ActivityGoodsDetailBinding, GoodsDetailViewModel> {
+@Route(path = "/shop/GoodsListActivity")
+public class GoodsListActivity extends BaseActivity<ActivityGoodsListBinding, GoodsListViewModel> {
 
 
     @Override
     public int initContentView(Bundle savedInstanceState) {
-        return R.layout.activity_goods_detail;
+        return R.layout.activity_goods_list;
     }
 
 

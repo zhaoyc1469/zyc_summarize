@@ -3,9 +3,13 @@
     package="com.mylibrary.magiccamera">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application>
-        <activity android:name=".view.activity.ScreenTestActivity" />
+        <activity
+            android:name=".view.activity.ScreenTestActivity"
+            android:hardwareAccelerated="true" />
     </application>
 
 </manifest>
