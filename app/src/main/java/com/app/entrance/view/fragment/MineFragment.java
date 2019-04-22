@@ -35,7 +35,7 @@ public class MineFragment extends BaseFragment<FragmentMineBinding, MineFrgViewM
     protected void initViewObservable() {
         mViewModel.getScreenClickEvent().observe(this, o -> {
             RxPermissions rxPermissions = new RxPermissions(Objects.requireNonNull(getActivity()));
-            rxPermissions.request(Manifest.permission.CAMERA)
+            rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     .subscribe(aBoolean -> {
                         if (aBoolean) {
                             startActivity(ScreenTestActivity.class);

@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class ImageUtils {
 
@@ -31,7 +32,7 @@ public class ImageUtils {
     private static final String[] STORE_IMAGES = {
             MediaStore.Images.Thumbnails._ID,
     };
-    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss");
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CHINA);
 
     public static Bitmap rotateBitmap(Bitmap source, int degree, boolean flipHorizontal, boolean recycle) {
         if (degree == 0 && !flipHorizontal) {

@@ -42,11 +42,16 @@ public class Camera2Proxy {
 
     private Activity mActivity;
 
-    private int mCameraId = CameraCharacteristics.LENS_FACING_FRONT; // 要打开的摄像头ID
+//    private int mCameraId = CameraCharacteristics.LENS_FACING_FRONT; // 要打开的摄像头ID
+    private int mCameraId = CameraCharacteristics.LENS_FACING_BACK; // 要打开的摄像头ID
     private Size mPreviewSize; // 预览大小
     private CameraManager mCameraManager; // 相机管理者
     private CameraCharacteristics mCameraCharacteristics; // 相机属性
     private CameraDevice mCameraDevice; // 相机对象
+    //CameraCaptureSession 是一个事务，用来向相机设备发送获取图像的请求。
+    //主要有 setRepeatingRequest() 和 capture() 方法。setRepeatingRequest()
+    //是重复请求获取图像数据，常用于预览或连拍，capture() 是获取一次，常用于单张拍照。
+    //CameraCaptureSession 类是一个抽象类，其直接的实现类为 CameraConstrainedHighSpeedCaptureSession。
     private CameraCaptureSession mCaptureSession;
     private CaptureRequest.Builder mPreviewRequestBuilder; // 相机预览请求的构造器
     private CaptureRequest mPreviewRequest;
@@ -62,7 +67,7 @@ public class Camera2Proxy {
     private int mZoom = 1; // 缩放
 
     /**
-     * 打开摄像头的回调
+     * 打开摄像头的回调 监听摄像头状态
      */
     private CameraDevice.StateCallback mStateCallback = new CameraDevice.StateCallback() {
         @Override
@@ -212,8 +217,10 @@ public class Camera2Proxy {
 
     public void captureStillPicture() {
         try {
-            CaptureRequest.Builder captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice
-                    .TEMPLATE_STILL_CAPTURE);
+            CaptureRequest.Builder captureBuilder = mCameraDevice.createCaptureRequest(CameraDevice.TEMPLATE_STILL_CAPTURE);
+
+//            CameraDevice.TEMPLATE_STILL_CAPTURE  拍照请求
+//            CameraDevice.TEMPLATE_RECORD  拍摄视频请求
             captureBuilder.addTarget(mImageReader.getSurface());
             captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getJpegOrientation(mDeviceOrientation));
