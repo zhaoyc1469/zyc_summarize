@@ -7,7 +7,7 @@ import android.media.Image;
 import android.media.ImageReader;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -20,7 +20,7 @@ import com.mylibrary.magiccamera.utils.Camera2Proxy;
 import com.mylibrary.magiccamera.utils.ImageUtils;
 import com.mylibrary.magiccamera.utils.NativeTest;
 import com.mylibrary.magiccamera.viewModel.ScreenTestViewModel;
-import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle3.android.ActivityEvent;
 
 import java.nio.ByteBuffer;
 
@@ -28,11 +28,12 @@ import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
+
 @Route(path = "/camera/ScreenTestActivity")
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class ScreenTestActivity extends BaseActivity<ActivityScreenTestBinding, ScreenTestViewModel> {
 
-    private static final String TAG = "TextureCameraActivity";
+    private static final String TAG = "ScreenTestActivity";
     private Camera2Proxy mCameraProxy;
 
     @Override
@@ -65,6 +66,8 @@ public class ScreenTestActivity extends BaseActivity<ActivityScreenTestBinding, 
 
     @SuppressLint("CheckResult")
     private ImageReader.OnImageAvailableListener mOnImageAvailableListener = reader -> {
+
+//        glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         Flowable.just(reader.acquireNextImage())
                 .map(this::Image2Bitmap)
                 .onBackpressureDrop()

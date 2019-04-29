@@ -1,10 +1,11 @@
 package com.app.frame.binding.viewadapter.view;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.view.View;
 
-import com.jakewharton.rxbinding2.view.RxView;
 import com.app.frame.binding.command.BindingCommand;
+import com.jakewharton.rxbinding3.view.RxView;
+
 import java.util.concurrent.TimeUnit;
 import io.reactivex.functions.Consumer;
 

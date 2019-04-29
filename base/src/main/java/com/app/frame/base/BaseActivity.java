@@ -1,19 +1,21 @@
 package com.app.frame.base;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
+import androidx.annotation.Nullable;
+
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.frame.contract.IView;
-import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
+import com.trello.rxlifecycle3.LifecycleProvider;
+import com.trello.rxlifecycle3.components.support.RxAppCompatActivity;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -133,7 +135,7 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         mViewModel.getUIChangeLiveData().getOnBackPressedEvent().observe(this, (Observer<Void>) v -> onBackPressed());
     }
 
-    public <T extends android.arch.lifecycle.ViewModel> T createViewModel(FragmentActivity activity, Class<T> cls) {
+    public <T extends BaseViewModel> T createViewModel(FragmentActivity activity, Class<T> cls) {
         return ViewModelProviders.of(activity).get(cls);
     }
 

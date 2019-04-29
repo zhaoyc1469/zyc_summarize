@@ -23,8 +23,8 @@ import android.media.ImageReader;
 import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import android.util.Log;
 import android.util.Size;
 import android.view.OrientationEventListener;
@@ -222,8 +222,9 @@ public class Camera2Proxy {
 //            CameraDevice.TEMPLATE_STILL_CAPTURE  拍照请求
 //            CameraDevice.TEMPLATE_RECORD  拍摄视频请求
             captureBuilder.addTarget(mImageReader.getSurface());
-            captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
-            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getJpegOrientation(mDeviceOrientation));
+            //设置触发器
+//            captureBuilder.set(CaptureRequest.CONTROL_AF_MODE, CaptureRequest.CONTROL_AF_MODE_CONTINUOUS_PICTURE);
+//            captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, getJpegOrientation(mDeviceOrientation));
             // 预览如果有放大，拍照的时候也应该保存相同的缩放
             Rect zoomRect = mPreviewRequestBuilder.get(CaptureRequest.SCALER_CROP_REGION);
             if (zoomRect != null) {
@@ -255,6 +256,7 @@ public class Camera2Proxy {
 
     private int getJpegOrientation(int deviceOrientation) {
         if (deviceOrientation == android.view.OrientationEventListener.ORIENTATION_UNKNOWN) return 0;
+        //CameraCharacteristics.SENSOR_ORIENTATION 定位传感器
         int sensorOrientation = mCameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
         // Round device orientation to a multiple of 90
         deviceOrientation = (deviceOrientation + 45) / 90 * 90;

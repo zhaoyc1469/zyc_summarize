@@ -1,9 +1,8 @@
 package com.app.entrance.viewModel;
 
-import android.databinding.ObservableField;
+import androidx.databinding.ObservableField;
 
 import com.app.entrance.contract.ISplashViewModel;
-import com.app.entrance.view.activity.LoginActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;

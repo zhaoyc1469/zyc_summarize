@@ -2,6 +2,7 @@ package com.mylibrary.shopping_mall.view.activity;
 
 import android.os.Bundle;
 
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.frame.base.BaseActivity;
 import com.mylibrary.shopping_mall.BR;
@@ -22,5 +23,10 @@ public class GoodsListActivity extends BaseActivity<ActivityGoodsListBinding, Go
     @Override
     protected int initVariableId() {
         return BR.viewModel;
+    }
+
+    @Override
+    protected void initData() {
+        mViewModel.setSrlView(mDataBinding.srlGoods);
     }
 }

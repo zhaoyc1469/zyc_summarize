@@ -29,5 +29,7 @@ android {
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(path: ':base')
+    api project(path: ':base')
+    //刷新
+    api rootProject.ext.dependencies["smartrefresh"]
 }

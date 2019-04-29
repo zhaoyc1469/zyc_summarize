@@ -1,13 +1,14 @@
 package com.app.frame.base;
 
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+
 import android.os.Bundle;
 
 import com.app.frame.contract.IView;
-import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle3.LifecycleProvider;
 import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 

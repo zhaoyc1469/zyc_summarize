@@ -1,6 +1,6 @@
 package com.app.frame.binding.viewadapter.webview;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.text.TextUtils;
 import android.webkit.WebView;
 

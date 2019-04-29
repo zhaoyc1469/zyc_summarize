@@ -1,17 +1,15 @@
 package com.app.entrance.viewModel;
 
-import android.databinding.ObservableBoolean;
-import android.databinding.ObservableField;
-import android.databinding.ObservableInt;
+import androidx.databinding.ObservableBoolean;
+import androidx.databinding.ObservableField;
+import androidx.databinding.ObservableInt;
 import android.view.View;
 
 import com.app.entrance.contract.ILoginViewModel;
 import com.app.entrance.model.LoginModel;
 import com.app.entrance.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
-import com.app.frame.binding.command.BindingAction;
 import com.app.frame.binding.command.BindingCommand;
-import com.app.frame.binding.command.BindingConsumer;
 import com.app.frame.contract.IViewModel;
 
 public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginViewModel {

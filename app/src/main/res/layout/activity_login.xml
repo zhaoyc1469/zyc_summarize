@@ -11,7 +11,7 @@
 
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.activity.LoginActivity">
@@ -124,6 +124,6 @@
             binding:layout_constraintVertical_bias="0.8"
             binding:onClickCommand="@{viewModel.loginClickCommand}" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

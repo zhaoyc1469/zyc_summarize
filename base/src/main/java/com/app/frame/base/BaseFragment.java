@@ -1,22 +1,23 @@
 package com.app.frame.base;
 
 import android.app.Activity;
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.app.frame.contract.IView;
-import com.trello.rxlifecycle2.LifecycleProvider;
-import com.trello.rxlifecycle2.components.support.RxFragment;
+import com.trello.rxlifecycle3.LifecycleProvider;
+import com.trello.rxlifecycle3.components.support.RxFragment;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -142,7 +143,7 @@ public abstract class BaseFragment <DataBinding extends ViewDataBinding, ViewMod
         });
     }
 
-    public <T extends android.arch.lifecycle.ViewModel> T createViewModel(BaseFragment fragment, Class<T> cls) {
+    public <T extends BaseViewModel> T createViewModel(BaseFragment fragment, Class<T> cls) {
         return ViewModelProviders.of(fragment).get(cls);
     }
 
