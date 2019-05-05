@@ -28,8 +28,4 @@ public class BaseModel<VM extends IViewModel>  implements IModel {
         return null;
     }
 
-    @Override
-    public String getPassword() {
-        return LocalClient.getInstance().getPassword();
-    }
 }

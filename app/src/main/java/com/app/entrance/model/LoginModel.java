@@ -54,4 +54,10 @@ public class LoginModel extends BaseModel<ILoginViewModel>{
     public void setPassword(String password) {
         LocalClient.getInstance().setPassword(password);
     }
+
+    public String getPassword(){
+        return "";
+    }
+
+
 }

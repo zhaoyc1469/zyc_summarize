@@ -19,14 +19,9 @@ public class GoodsListActivity extends BaseActivity<ActivityGoodsListBinding, Go
         return R.layout.activity_goods_list;
     }
 
-
     @Override
     protected int initVariableId() {
         return BR.viewModel;
     }
 
-    @Override
-    protected void initData() {
-        mViewModel.setSrlView(mDataBinding.srlGoods);
-    }
 }

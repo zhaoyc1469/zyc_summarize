@@ -12,6 +12,8 @@ import com.app.entrance.BR;
 import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
 import com.app.frame.base.BaseFragment;
+import com.mylibrary.magiccamera.view.activity.ScreenTestActivity;
+import com.mylibrary.shopping_mall.view.activity.GoodsListActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
@@ -62,7 +64,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 fragTrn.commit();
                 break;
             case 2:
-//            Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+                startActivity(GoodsListActivity.class);
                 break;
             case 3:
 //            Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BaseApplication extends MultiDexApplication {
 
-    public final static boolean isDebug = false;
+    public final static boolean isDebug = true;
 
 
     @Override

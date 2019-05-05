@@ -6,6 +6,4 @@ public interface IModel {
 
     String getUserNo();
 
-    String getPassword();
-
 }

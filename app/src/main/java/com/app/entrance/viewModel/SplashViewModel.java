@@ -36,7 +36,7 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
         skipDisposable = Flowable.intervalRange(0, 3, 0, 1, TimeUnit.SECONDS)
                 .onBackpressureDrop()
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext((Consumer<Long>) i -> skipNum.set(String.valueOf(3 - i)))
+                .doOnNext(i -> skipNum.set(String.valueOf(3 - i)))
                 .doOnComplete(this::skipAdvertising)
                 .subscribe();
 
