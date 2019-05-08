@@ -13,6 +13,7 @@ import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
 import com.app.frame.base.BaseFragment;
 import com.mylibrary.magiccamera.view.activity.ScreenTestActivity;
+import com.mylibrary.shopping_mall.view.activity.FriendCircleActivity;
 import com.mylibrary.shopping_mall.view.activity.GoodsListActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
@@ -34,7 +35,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     @Override
-    protected void initData() {
+    protected void initUI() {
         fragManager = getSupportFragmentManager();
     }
 
@@ -67,7 +68,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 startActivity(GoodsListActivity.class);
                 break;
             case 3:
-//            Toast.makeText(this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+                startActivity(FriendCircleActivity.class);
                 break;
             case 4:
                 if (mineFragment == null) {

@@ -26,7 +26,6 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     void injectLifecycleProvider(IView mView) {
         lifecycle = mView.getLifecycleProvider();
         mModel = initModel(this);
-        initData();
     }
 
     protected void initData() {
@@ -134,7 +133,7 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
         }
     }
 
-    UIChangeLiveData getUIChangeLiveData() {
+    public UIChangeLiveData getUIChangeLiveData() {
         if (uiChangeLiveData == null) {
             uiChangeLiveData = new UIChangeLiveData();
         }
@@ -144,6 +143,8 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
 
     public final class UIChangeLiveData extends SingleLiveEvent {
         private SingleLiveEvent<String> showDialogEvent;
+        private SingleLiveEvent<Void> endRefreshEvent;
+        private SingleLiveEvent<Void> endLoadMoreEvent;
         private SingleLiveEvent<String> startARouterUrl;
         private SingleLiveEvent<Void> dismissDialogEvent;
         private SingleLiveEvent<Map<String, Object>> startActivityEvent;
@@ -152,6 +153,14 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
 
         public SingleLiveEvent<String> getShowDialogEvent() {
             return showDialogEvent = createLiveData(showDialogEvent);
+        }
+
+        public SingleLiveEvent<Void> getEndRefresh() {
+            return endRefreshEvent = createLiveData(endRefreshEvent);
+        }
+
+        public SingleLiveEvent<Void> getEndLoadMore() {
+            return endLoadMoreEvent = createLiveData(endLoadMoreEvent);
         }
 
         public SingleLiveEvent<String> getStartARountUrl() {

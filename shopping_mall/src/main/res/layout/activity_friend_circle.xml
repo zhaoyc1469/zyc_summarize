@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mylibrary.shopping_mall.viewModel.FriendCircleViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.activity.FriendCircleActivity">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/srl_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                binding:layout_constraintBottom_toBottomOf="parent"
+                binding:layout_constraintEnd_toEndOf="parent"
+                binding:layout_constraintStart_toStartOf="parent"
+                binding:smartRefresh='@{viewModel.onRefreshListener}'
+                binding:smartLoadMore='@{viewModel.onLoadMoreListener}'>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    binding:bindRvAdapter='@{viewModel.friendCircleAdapter}'
+                    binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </FrameLayout>
+
+        <com.mylibrary.shopping_mall.view.view.CommentBox
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+</layout>

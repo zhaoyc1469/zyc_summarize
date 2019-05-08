@@ -1,4 +1,4 @@
-package com.common.function.rvBind;
+package com.common.function.rvbind;
 
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;

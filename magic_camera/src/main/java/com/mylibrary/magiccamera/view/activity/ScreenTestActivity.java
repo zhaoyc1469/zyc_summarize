@@ -48,7 +48,7 @@ public class ScreenTestActivity extends BaseActivity<ActivityScreenTestBinding, 
     }
 
     @Override
-    protected void initData() {
+    protected void initUI() {
         mCameraProxy = mDataBinding.c2Texture.getCameraProxy();
 
         NativeTest nativeTest = new NativeTest();

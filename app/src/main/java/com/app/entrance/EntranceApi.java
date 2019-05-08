@@ -16,4 +16,5 @@ public interface EntranceApi {
     @POST("action/apiv/")
     @FormUrlEncoded
     Observable<TextBean> checkVersion(@Field("catalog") String version);
+
 }

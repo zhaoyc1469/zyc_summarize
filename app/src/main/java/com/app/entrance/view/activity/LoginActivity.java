@@ -25,7 +25,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     }
 
     @Override
-    protected void initData() {
+    protected void initUI() {
         AppManager.getAppManager().removeOtherActivity(LoginActivity.class);
     }
 }

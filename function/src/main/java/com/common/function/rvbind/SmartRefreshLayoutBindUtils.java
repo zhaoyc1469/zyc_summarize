@@ -1,4 +1,4 @@
-package com.common.function.refresh;
+package com.common.function.rvbind;
 
 import androidx.databinding.BindingAdapter;
 
@@ -15,12 +15,12 @@ public class SmartRefreshLayoutBindUtils {
     }
 
     @BindingAdapter({"smartRefresh"})
-    public void smartRefreshLayoutBind(SmartRefreshLayout smartRefreshLayout, OnRefreshListener onRefreshListener) {
+    public static void smartRefreshLayoutBind(SmartRefreshLayout smartRefreshLayout, OnRefreshListener onRefreshListener) {
         smartRefreshLayout.setOnRefreshListener(onRefreshListener);
     }
 
     @BindingAdapter({"smartLoadMore"})
-    public void smartRefreshLayoutBind(SmartRefreshLayout smartRefreshLayout, OnLoadMoreListener onLoadMoreListener) {
+    public static void smartRefreshLayoutBind(SmartRefreshLayout smartRefreshLayout, OnLoadMoreListener onLoadMoreListener) {
         smartRefreshLayout.setOnLoadMoreListener(onLoadMoreListener);
     }
 }
