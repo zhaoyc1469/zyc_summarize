@@ -24,4 +24,9 @@ public class GoodsListActivity extends BaseActivity<ActivityGoodsListBinding, Go
         return BR.viewModel;
     }
 
+    @Override
+    protected void initViewObservable() {
+
+
+    }
 }

@@ -17,7 +17,7 @@ public class GoodsListModel extends BaseModel<IGoodsListViewModel> {
     }
 
 
-    public void loadGoodsList() {
+    public void loadGoodsList(boolean isLoadMore) {
         RetrofitClient.getInstance().createNet(Shop_Api.class)
                 .checkVersion("saf")
                 .compose(RxUtils.bindToLifecycle(mViewModel.getLifecycleProvider()))
@@ -35,7 +35,7 @@ public class GoodsListModel extends BaseModel<IGoodsListViewModel> {
 
                     @Override
                     public void onError(Throwable e) {
-                        mViewModel.loadGoodsListSuccess();
+                        mViewModel.loadGoodsListSuccess(isLoadMore);
 
                     }
 

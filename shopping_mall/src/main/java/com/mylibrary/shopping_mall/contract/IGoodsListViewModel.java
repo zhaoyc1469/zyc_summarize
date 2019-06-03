@@ -4,5 +4,5 @@ import com.app.frame.contract.IViewModel;
 
 public interface IGoodsListViewModel extends IViewModel {
 
-    void loadGoodsListSuccess();
+    void loadGoodsListSuccess(boolean isLoadMore);
 }

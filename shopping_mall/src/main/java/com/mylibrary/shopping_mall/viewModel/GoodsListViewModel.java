@@ -19,38 +19,32 @@ public class GoodsListViewModel extends BaseViewModel<GoodsListModel> implements
 
     public GoodsListAdapter goodsListAdapter = new GoodsListAdapter();
 
-    //刷新列表控件
-    private RefreshLayout sRefreshLayout;
     //刷新监听
     public OnRefreshLoadMoreListener onRefreshLoadMoreListener = new OnRefreshLoadMoreListener() {
         @Override
         public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-            if (sRefreshLayout == null) {
-                sRefreshLayout = refreshLayout;
-            }
-            mModel.loadGoodsList();
+            mModel.loadGoodsList(true);
         }
 
         @Override
         public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-            if (sRefreshLayout == null) {
-                sRefreshLayout = refreshLayout;
-            }
-            mModel.loadGoodsList();
+            mModel.loadGoodsList(false);
         }
     };
 
 
     @Override
-    public void loadGoodsListSuccess() {
-        sRefreshLayout.finishLoadMore();
-        sRefreshLayout.finishRefresh();
+    public void loadGoodsListSuccess(boolean isLoadMore) {
+        if (isLoadMore) {
+            getUIChangeLiveData().getEndRefresh().postValue(null);
+        } else {
+            getUIChangeLiveData().getEndLoadMore().postValue(null);
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        sRefreshLayout = null;
         onRefreshLoadMoreListener = null;
         goodsListAdapter = null;
     }
