@@ -3,7 +3,6 @@
     package="com.mylibrary.shopping_mall">
 
     <application>
-        <activity android:name=".view.activity.FriendCircleActivity" />
         <activity android:name=".view.activity.GoodsListActivity" />
         <activity android:name=".view.activity.GoodsDetailActivity" />
     </application>

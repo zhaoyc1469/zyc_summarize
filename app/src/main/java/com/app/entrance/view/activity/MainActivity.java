@@ -12,8 +12,6 @@ import com.app.entrance.BR;
 import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
 import com.app.frame.base.BaseFragment;
-import com.mylibrary.magiccamera.view.activity.ScreenTestActivity;
-import com.mylibrary.shopping_mall.view.activity.FriendCircleActivity;
 import com.mylibrary.shopping_mall.view.activity.GoodsListActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
@@ -68,7 +66,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 startActivity(GoodsListActivity.class);
                 break;
             case 3:
-                startActivity(FriendCircleActivity.class);
+
                 break;
             case 4:
                 if (mineFragment == null) {
