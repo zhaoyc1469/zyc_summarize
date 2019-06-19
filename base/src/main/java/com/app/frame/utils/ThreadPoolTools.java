@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolTools {
 
-    private BlockingQueue<Runnable> workQueue;
     private ExecutorService executorService;
 
     private static class ThreadPoolToolsHolder {
@@ -21,12 +20,12 @@ public class ThreadPoolTools {
         int maximumPoolSize = corePoolSize * 2;
         int keepAliveTime = 1;
         TimeUnit unit = TimeUnit.SECONDS;
-        workQueue = new LinkedBlockingQueue<Runnable>();
+        BlockingQueue<Runnable> workQueue = new LinkedBlockingQueue<Runnable>();
         executorService = new ThreadPoolExecutor(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue,
                 Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
     }
 
-    public static final ThreadPoolTools getInstance() {
+    public static ThreadPoolTools getInstance() {
         return ThreadPoolToolsHolder.INSTANCE;
     }
 

@@ -1,5 +1,7 @@
 package com.app.entrance.viewModel;
 
+import android.util.Log;
+
 import androidx.databinding.ObservableField;
 
 import com.app.entrance.contract.ISplashViewModel;
@@ -7,13 +9,20 @@ import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;
 import com.app.entrance.model.SplashModel;
+import com.app.frame.utils.ThreadPoolTools;
+import com.common.function.utils.PingUtils;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
+import io.reactivex.FlowableEmitter;
+import io.reactivex.FlowableOnSubscribe;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class SplashViewModel extends BaseViewModel<SplashModel> implements ISplashViewModel {
 
@@ -33,6 +42,7 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
     public void initData() {
         mModel.checkVersion();
 
+
         skipDisposable = Flowable.intervalRange(0, 3, 0, 1, TimeUnit.SECONDS)
                 .onBackpressureDrop()
                 .observeOn(AndroidSchedulers.mainThread())
@@ -42,13 +52,11 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
 
     }
 
-    @Override
-    public void onDestroy() {
-        if (skipDisposable != null)
-            skipDisposable.dispose();
-    }
 
     private void skipAdvertising() {
+        if (skipDisposable != null) {
+            skipDisposable.dispose();
+        }
         startActivity("/app/LoginActivity");
     }
 }
