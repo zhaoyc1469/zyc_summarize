@@ -12,7 +12,6 @@ import com.app.entrance.BR;
 import com.app.entrance.R;
 import com.app.entrance.databinding.ActivityMainBinding;
 import com.app.frame.base.BaseFragment;
-import com.mylibrary.shopping_mall.view.activity.GoodsListActivity;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
@@ -63,10 +62,10 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 fragTrn.commit();
                 break;
             case 2:
-                startActivity(GoodsListActivity.class);
+                startActivity("/shop/GoodsListActivity");
                 break;
             case 3:
-
+                startActivity("/moments/MomentsMainActivity");
                 break;
             case 4:
                 if (mineFragment == null) {

@@ -54,7 +54,7 @@ public class SplashViewModel extends BaseViewModel<SplashModel> implements ISpla
 
 
     private void skipAdvertising() {
-        if (skipDisposable != null) {
+        if (skipDisposable != null){
             skipDisposable.dispose();
         }
         startActivity("/app/LoginActivity");

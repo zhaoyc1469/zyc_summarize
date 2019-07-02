@@ -6,7 +6,7 @@ import com.app.frame.base.BaseViewModel;
 import com.app.frame.contract.IViewModel;
 import com.mylibrary.shopping_mall.contract.IGoodsListViewModel;
 import com.mylibrary.shopping_mall.model.GoodsListModel;
-import com.mylibrary.shopping_mall.view.adapter.GoodsListAdapter;
+import com.mylibrary.shopping_mall.adapter.rvAdapter.GoodsListAdapter;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
@@ -36,9 +36,9 @@ public class GoodsListViewModel extends BaseViewModel<GoodsListModel> implements
     @Override
     public void loadGoodsListSuccess(boolean isLoadMore) {
         if (isLoadMore) {
-            getUIChangeLiveData().getEndRefresh().postValue(null);
-        } else {
             getUIChangeLiveData().getEndLoadMore().postValue(null);
+        } else {
+            getUIChangeLiveData().getEndRefresh().postValue(null);
         }
     }
 

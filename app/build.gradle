@@ -43,4 +43,5 @@ dependencies {
     implementation project(path: ':base')
     implementation project(path: ':shopping_mall')
     implementation project(path: ':magic_camera')
+    implementation project(path: ':moments')
 }

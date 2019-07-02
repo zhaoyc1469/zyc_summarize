@@ -66,6 +66,16 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
         startActivity(new Intent(this, clz));
     }
 
+
+    /**
+     * 跳转页面
+     *
+     * @param url 所跳转的目的Activity路由地址
+     */
+    public void startActivity(String url) {
+        ARouter.getInstance().build(url).navigation(this);
+    }
+
     /**
      * 跳转页面
      *

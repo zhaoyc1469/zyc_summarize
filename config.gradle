@@ -1,72 +1,82 @@
 ext {
 
     android = [
-            compileSdkVersion       : 28,
-            buildToolsVersion       : "28.0.3",
-            minSdkVersion           : 16,
-            targetSdkVersion        : 28,
-            versionCode             : 180,
-            versionName             : "2.5.0"
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.3",
+            minSdkVersion    : 16,
+            targetSdkVersion : 28,
+            versionCode      : 180,
+            versionName      : "2.5.0"
     ]
 
     version = [
-            androidXSupportSdkVersion         : "1.0.0+",
-            androidConstraintSdkVersion       : "1.1.2",
-            retrofitSdkVersion                : "2.4.0",
-            rxlifecycleXSdkVersion            : "2.0.0",
-            rxlifecycle3SdkVersion            : "3.0.0",
-            espressoSdkVersion                : "3.1.0",
-            androidMultidexSdkVersion         : "2.0.0+",
+            androidXSupportSdkVersion  : "1.0.0+",
+            androidConstraintSdkVersion: "1.1.2",
+            retrofitSdkVersion         : "2.4.0",
+            rxlifecycleXSdkVersion     : "2.0.0",
+            rxlifecycle3SdkVersion     : "3.0.0",
+            espressoSdkVersion         : "3.1.0",
+            androidMultidexSdkVersion  : "2.0.0+",
+            basePopupVersion           : "2.2.1",
     ]
 
     dependencies = [
             //constraint
-            "constraint"               : "androidx.constraintlayout:constraintlayout:${version["androidConstraintSdkVersion"]}",
+            "constraint"              : "androidx.constraintlayout:constraintlayout:${version["androidConstraintSdkVersion"]}",
 
             //support_x
-            "appcompat-x"              : "androidx.appcompat:appcompat:${version["androidXSupportSdkVersion"]}",
-            "core-x"                   : "androidx.core:core:${version["androidXSupportSdkVersion"]}",
-            "support-x"                : "androidx.legacy:legacy-support-v4:${version["androidXSupportSdkVersion"]}",
-            "recyclerview"             : "androidx.recyclerview:recyclerview:${version["androidXSupportSdkVersion"]}",
-            "multidex"                 : "androidx.multidex:multidex:${version["androidMultidexSdkVersion"]}",
+            "appcompat-x"             : "androidx.appcompat:appcompat:${version["androidXSupportSdkVersion"]}",
+            "core-x"                  : "androidx.core:core:${version["androidXSupportSdkVersion"]}",
+            "support-x"               : "androidx.legacy:legacy-support-v4:${version["androidXSupportSdkVersion"]}",
+            "recyclerview"            : "androidx.recyclerview:recyclerview:${version["androidXSupportSdkVersion"]}",
+            "multidex"                : "androidx.multidex:multidex:${version["androidMultidexSdkVersion"]}",
 
             //network
-            "okhttp3"                  : "com.squareup.okhttp3:okhttp:3.11.0",
-            "retrofit"                 : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
-            "retrofit-converter-gson"  : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
-            "retrofit-adapter-rxjava2" : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
-            "gson"                     : "com.google.code.gson:gson:2.8.5",
+            "okhttp3"                 : "com.squareup.okhttp3:okhttp:3.11.0",
+            "retrofit"                : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
+            "retrofit-converter-gson" : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
+            "retrofit-adapter-rxjava2": "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
+            "gson"                    : "com.google.code.gson:gson:2.8.5",
 
             //mmkv
-            "mmkv"                     : "com.tencent:mmkv-static:1.0.18",
+            "mmkv"                    : "com.tencent:mmkv-static:1.0.18",
 
             //refresh
-            "smartrefresh"             : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-6",
+            "smartrefresh"            : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-6",
 
             //arouter
-            "arouter-api"              : "com.alibaba:arouter-api:1.4.1",
-            "arouter-compiler"         : "com.alibaba:arouter-compiler:1.2.2",
+            "arouter-api"             : "com.alibaba:arouter-api:1.4.1",
+            "arouter-compiler"        : "com.alibaba:arouter-compiler:1.2.2",
 
             //rxbinding
-            "rxbinding"                : "com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2",
+            "rxbinding"               : "com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2",
 
             //rxpermissions
-            "rxpermissions"            : "com.github.tbruyelle:rxpermissions:0.10.2",
+            "rxpermissions"           : "com.github.tbruyelle:rxpermissions:0.10.2",
 
             //rxlifecycle
-            "rxlifecycle-common"       : "androidx.lifecycle:lifecycle-common:${version["rxlifecycleXSdkVersion"]}",
-            "lifecycle-extensions"     : "androidx.lifecycle:lifecycle-extensions:${version["rxlifecycleXSdkVersion"]}",
-            "rxlifecycle3-android"     : "com.trello.rxlifecycle3:rxlifecycle-android:${version["rxlifecycle3SdkVersion"]}",
-            "rxlifecycle3-components"  : "com.trello.rxlifecycle3:rxlifecycle-components:${version["rxlifecycle3SdkVersion"]}",
+            "rxlifecycle-common"      : "androidx.lifecycle:lifecycle-common:${version["rxlifecycleXSdkVersion"]}",
+            "lifecycle-extensions"    : "androidx.lifecycle:lifecycle-extensions:${version["rxlifecycleXSdkVersion"]}",
+            "rxlifecycle3-android"    : "com.trello.rxlifecycle3:rxlifecycle-android:${version["rxlifecycle3SdkVersion"]}",
+            "rxlifecycle3-components" : "com.trello.rxlifecycle3:rxlifecycle-components:${version["rxlifecycle3SdkVersion"]}",
 
             //rx2
-            "rxandroid2"               : "io.reactivex.rxjava2:rxandroid:2.1.0",
-            "rxjava2"                  : "io.reactivex.rxjava2:rxjava:2.2.3",
+            "rxandroid2"              : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            "rxjava2"                 : "io.reactivex.rxjava2:rxjava:2.2.3",
 
             //test
-            "junit"                    : "junit:junit:4.12",
-            "androidJUnitRunner"       : "androidx.test.runner.AndroidJUnitRunner",
-            "runner"                   : "androidx.test:runner:1.1.0",
-            "espresso-core"            : "androidx.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "junit"                   : "junit:junit:4.12",
+            "androidJUnitRunner"      : "androidx.test.runner.AndroidJUnitRunner",
+            "runner"                  : "androidx.test:runner:1.1.0",
+            "espresso-core"           : "androidx.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+
+
+            "basePopup"               : "com.github.razerdp:BasePopup:${version["basePopupVersion"]}",
+            //BasePopup support支持库（如支持DialogFragment里弹Popup时的层序支持）
+            "basePopup-support"       : "com.github.razerdp:BasePopup-compat-support:${version["basePopupVersion"]}",
+            //BasePopup lifecycle支持库（如自动适配Activity/Fragment生命期dismiss/回收等）
+            "basePopup-lifecycle"     : "com.github.razerdp:BasePopup-compat-lifecycle:${version["basePopupVersion"]}",
+            //BasePopup androidx支持库（针对以上两个支持的androidX版本）
+            "basePopup-androidx"      : "com.github.razerdp:BasePopup-compat-androidx:${version["basePopupVersion"]}",
     ]
 }

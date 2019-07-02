@@ -17,6 +17,7 @@
         tools:context=".view.activity.GoodsListActivity">
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_content"
             android:layout_width="0dp"
             android:layout_height="0dp"
             binding:smartRefreshLoadMore='@{viewModel.onRefreshLoadMoreListener}'

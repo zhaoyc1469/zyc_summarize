@@ -1,4 +1,4 @@
-package com.mylibrary.shopping_mall.view.adapter;
+package com.mylibrary.shopping_mall.adapter.rvAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
