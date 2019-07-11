@@ -57,14 +57,12 @@ public class MomentsViewHelper {
         switch (commentType) {
             case CommentBox.CommentType.TYPE_CREATE:
                 if (anchorView instanceof CommentWidget || anchorView == null) {
-//                    KLog.e("anchorView不符合当前的评论类型");
                     return null;
                 }
                 scrollY = calcuateMomentsViewOffset(commentBox, anchorView);
                 break;
             case CommentBox.CommentType.TYPE_REPLY:
                 if (!(anchorView instanceof CommentWidget)) {
-//                    KLog.e("anchorView不符合当前的评论类型");
                     return null;
                 }
                 CommentWidget commentWidget = (CommentWidget) anchorView;

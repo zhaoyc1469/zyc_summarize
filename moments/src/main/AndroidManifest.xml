@@ -3,7 +3,8 @@
     package="com.mylibrary.moments">
 
     <application>
-        <activity android:name=".view.activity.MomentsMainActivity" />
+        <activity
+            android:name=".view.activity.MomentsMainActivity" />
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
 
+import com.mylibrary.moments.adapter.rvAdapter.MomentsMainAdapter;
 import com.mylibrary.moments.bean.MomentsInfo;
 import com.mylibrary.moments.bean.TextBean;
 import com.mylibrary.moments.view.customs.commentwidget.CommentPopup;
@@ -17,13 +18,27 @@ public abstract class BaseMItemVH<T extends ViewDataBinding> extends BaseMomentV
     protected MomentItemViewModel momentItemViewModel;
     private CommentPopup commentPopup;
     protected T binding;
+    private MomentsMainAdapter.ShowCommentListener listener;
 
     BaseMItemVH(@NonNull T binding) {
         super(binding.getRoot());
         momentItemViewModel = new MomentItemViewModel(itemView);
         if (commentPopup == null) {
             commentPopup = new CommentPopup(binding.getRoot().getContext());
-//            commentPopup.setOnCommentPopupClickListener(onCommentPopupClickListener);
+            CommentPopup.OnPopupClickListener onPopupClickListener = new CommentPopup.OnPopupClickListener() {
+                @Override
+                public void onLikeClick(View v, @NonNull MomentsInfo info, boolean hasLiked) {
+                    if (hasLiked) {
+                    } else {
+                    }
+                }
+
+                @Override
+                public void onCommentClick(View v, @NonNull MomentsInfo info) {
+                    listener.showCommentBox(itemView, getAdapterPosition(), "213", null);
+                }
+            };
+            commentPopup.setOnCommentPopupClickListener(onPopupClickListener);
         }
         VhMenuClickListener menuClickListener = (itemView, textBean) -> {
             commentPopup.showPopupWindow(getMenuImgView());
@@ -38,8 +53,8 @@ public abstract class BaseMItemVH<T extends ViewDataBinding> extends BaseMomentV
         momentItemViewModel.setTextBean(textBean);
     }
 
-    public void setPopupClickListener(Object o) {
-
+    public void setPopupClickListener(MomentsMainAdapter.ShowCommentListener listener) {
+        this.listener = listener;
     }
 
 

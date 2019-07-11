@@ -17,6 +17,7 @@ import com.mylibrary.moments.adapter.viewholder.TextVH;
 import com.mylibrary.moments.bean.MomentsInfo;
 import com.mylibrary.moments.bean.TextBean;
 import com.mylibrary.moments.view.customs.commentwidget.CommentPopup;
+import com.mylibrary.moments.view.customs.commentwidget.CommentWidget;
 import com.mylibrary.moments.viewModel.MomentsMainViewModel;
 
 public class MomentsMainAdapter extends RecyclerView.Adapter<BaseMomentVH> {
@@ -53,7 +54,7 @@ public class MomentsMainAdapter extends RecyclerView.Adapter<BaseMomentVH> {
         if (momentType == 5) {
             TextVH textVH = (TextVH) holder;
             textVH.setTextBean(new TextBean());
-            textVH.setPopupClickListener(onPopupClickListener);
+            textVH.setPopupClickListener(onShowCommentListener);
         } else {
 
         }
@@ -69,17 +70,15 @@ public class MomentsMainAdapter extends RecyclerView.Adapter<BaseMomentVH> {
         return 10;
     }
 
+    public interface ShowCommentListener {
+        void showCommentBox(View itemView, int itemPosition, String momentid, CommentWidget commentWidget);
+    }
 
-    private CommentPopup.OnPopupClickListener onPopupClickListener = new CommentPopup.OnPopupClickListener() {
+    private ShowCommentListener onShowCommentListener = new ShowCommentListener() {
         @Override
-        public void onLikeClick(View v, @NonNull MomentsInfo info, boolean hasLiked) {
-            if (hasLiked) {
-            } else {
-            }
-        }
-
-        @Override
-        public void onCommentClick(View v, @NonNull MomentsInfo info) {
+        public void showCommentBox(View itemView, int itemPosition, String momentid, CommentWidget commentWidget) {
+            mainViewModel.showCommentBox( itemView,  itemPosition,  momentid,  commentWidget);
         }
     };
+
 }

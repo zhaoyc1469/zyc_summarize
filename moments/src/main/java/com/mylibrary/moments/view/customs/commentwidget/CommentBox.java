@@ -70,16 +70,15 @@ public class CommentBox extends FrameLayout {
             @Override
             public void onClick(View v) {
                 if (onCommentSendClickListener != null)
-                    onCommentSendClickListener.onCommentSendClick(v,
-                            mIComment,
+                    onCommentSendClickListener.onCommentSendClick(v, mIComment,
                             mInputContent.getText().toString().trim());
             }
         });
         setVisibility(GONE);
     }
 
-    public void showCommentBox(@NonNull String momentid, @Nullable IComment commentInfo) {
-        if (TextUtils.isEmpty(momentid)) return;
+    public void showCommentBox(@NonNull String momentId, @Nullable IComment commentInfo) {
+        if (TextUtils.isEmpty(momentId)) return;
         if (isShowing) return;
         this.isShowing = true;
         this.mIComment = commentInfo;
@@ -90,13 +89,13 @@ public class CommentBox extends FrameLayout {
             mInputContent.setHint("评论");
         }
         //对于同一条动态恢复草稿，否则不恢复
-        if (TextUtils.equals(momentid, this.momentid) && !TextUtils.isEmpty(draftString)) {
+        if (TextUtils.equals(momentId, this.momentid) && !TextUtils.isEmpty(draftString)) {
             mInputContent.setText(draftString);
             mInputContent.setSelection(draftString.length());
         } else {
             mInputContent.setText(null);
         }
-        setMomentid(momentid);
+        setMomentid(momentId);
         setVisibility(VISIBLE);
         UIHelper.showInputMethod(mInputContent, 150);
     }
