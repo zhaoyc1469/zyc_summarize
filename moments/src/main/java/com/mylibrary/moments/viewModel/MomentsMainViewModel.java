@@ -64,27 +64,6 @@ public class MomentsMainViewModel extends BaseViewModel<MomentsMainModel> implem
             getUIChangeLiveData().getEndRefresh().postValue(null);
         }
     }
-//
-//    //弹出评论框
-//    public void showCommentBox(View v, MomentsInfo info) {IComment comment = widget.getData();
-//        CommentInfo commentInfo = null;
-//        if (comment instanceof CommentInfo) {
-//            commentInfo = (CommentInfo) comment;
-//        }
-//        if (commentInfo == null) return;
-//        if (commentInfo.canDelete()) {
-//            deleteCommentPopup.showPopupWindow(commentInfo);
-//        } else {
-//            momentPresenter.showCommentBox(null, itemPosition, momentsInfo.getMomentid(), widget);
-//        }
-////        if (viewHolderRootView != null) {
-////            mViewHelper.setCommentAnchorView(viewHolderRootView);
-////        } else if (commentWidget != null) {
-////            mViewHelper.setCommentAnchorView(commentWidget);
-////        }
-////        mViewHelper.setCommentItemDataPosition(itemPos);
-//
-//    }
 
     //点赞
     public void praiseMoment() {

@@ -5,7 +5,6 @@ import android.view.View;
 import com.app.frame.binding.command.BindingCommand;
 import com.mylibrary.moments.adapter.viewholder.BaseMItemVH;
 import com.mylibrary.moments.bean.TextBean;
-import com.trello.rxlifecycle3.LifecycleProvider;
 
 public class MomentItemViewModel {
 

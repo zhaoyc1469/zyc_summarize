@@ -18,6 +18,7 @@ ext {
             espressoSdkVersion         : "3.1.0",
             androidMultidexSdkVersion  : "2.0.0+",
             basePopupVersion           : "2.2.1",
+            buglyersion                : "3.0.0",
     ]
 
     dependencies = [
@@ -70,7 +71,7 @@ ext {
             "runner"                  : "androidx.test:runner:1.1.0",
             "espresso-core"           : "androidx.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
 
-
+            //弹窗控件
             "basePopup"               : "com.github.razerdp:BasePopup:${version["basePopupVersion"]}",
             //BasePopup support支持库（如支持DialogFragment里弹Popup时的层序支持）
             "basePopup-support"       : "com.github.razerdp:BasePopup-compat-support:${version["basePopupVersion"]}",
@@ -78,5 +79,9 @@ ext {
             "basePopup-lifecycle"     : "com.github.razerdp:BasePopup-compat-lifecycle:${version["basePopupVersion"]}",
             //BasePopup androidx支持库（针对以上两个支持的androidX版本）
             "basePopup-androidx"      : "com.github.razerdp:BasePopup-compat-androidx:${version["basePopupVersion"]}",
+
+            //bugly
+            "bugly-sdk"               : "com.tencent.bugly:crashreport:${version["buglyersion"]}",
+
     ]
 }

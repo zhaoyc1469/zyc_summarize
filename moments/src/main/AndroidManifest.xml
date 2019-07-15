@@ -5,6 +5,12 @@
     <application>
         <activity
             android:name=".view.activity.MomentsMainActivity" />
+
+
+
+        <meta-data
+            android:name="com.mylibrary.moments.momentConfig"
+            android:value="ConfigModule"/>
     </application>
 
 </manifest>
