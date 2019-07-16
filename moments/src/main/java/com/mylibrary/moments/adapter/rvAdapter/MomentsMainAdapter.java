@@ -14,9 +14,7 @@ import com.mylibrary.moments.adapter.viewholder.MomentHeadVH;
 import com.mylibrary.moments.adapter.viewholder.NinePhotoVH;
 import com.mylibrary.moments.adapter.viewholder.OnePhotoVH;
 import com.mylibrary.moments.adapter.viewholder.TextVH;
-import com.mylibrary.moments.bean.MomentsInfo;
-import com.mylibrary.moments.bean.TextBean;
-import com.mylibrary.moments.view.customs.commentwidget.CommentPopup;
+import com.mylibrary.moments.bean.MomentItemBean;
 import com.mylibrary.moments.view.customs.commentwidget.CommentWidget;
 import com.mylibrary.moments.viewModel.MomentsMainViewModel;
 
@@ -53,7 +51,7 @@ public class MomentsMainAdapter extends RecyclerView.Adapter<BaseMomentVH> {
         int momentType = holder.getItemViewType();
         if (momentType == 5) {
             TextVH textVH = (TextVH) holder;
-            textVH.setTextBean(new TextBean());
+            textVH.setMomentItemBean(new MomentItemBean());
             textVH.setPopupClickListener(onShowCommentListener);
         } else {
 

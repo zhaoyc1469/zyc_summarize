@@ -3,27 +3,17 @@ package com.mylibrary.moments.viewModel;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.frame.base.BaseViewModel;
-import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
-import com.mylibrary.moments.bean.MomentsInfo;
 import com.mylibrary.moments.bean.MomentsViewBean;
 import com.mylibrary.moments.contract.IMomentsMainViewModel;
 import com.mylibrary.moments.model.MomentsMainModel;
 import com.mylibrary.moments.adapter.rvAdapter.MomentsMainAdapter;
 import com.mylibrary.moments.utils.MomentsLiveData;
-import com.mylibrary.moments.utils.MomentsViewHelper;
-import com.mylibrary.moments.view.customs.commentwidget.CommentBox;
-import com.mylibrary.moments.view.customs.commentwidget.CommentPopup;
 import com.mylibrary.moments.view.customs.commentwidget.CommentWidget;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
-
-import java.util.Map;
 
 public class MomentsMainViewModel extends BaseViewModel<MomentsMainModel> implements IMomentsMainViewModel {
 

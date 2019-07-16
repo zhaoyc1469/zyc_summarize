@@ -6,12 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;
 
 import com.mylibrary.moments.adapter.rvAdapter.MomentsMainAdapter;
-import com.mylibrary.moments.bean.MomentsInfo;
-import com.mylibrary.moments.bean.TextBean;
+import com.mylibrary.moments.bean.MomentItemBean;
 import com.mylibrary.moments.view.customs.commentwidget.CommentPopup;
-import com.mylibrary.moments.view.customs.commentwidget.CommentWidget;
 import com.mylibrary.moments.viewModel.MomentItemViewModel;
-import com.trello.rxlifecycle3.LifecycleProvider;
 
 public abstract class BaseMItemVH<T extends ViewDataBinding> extends BaseMomentVH {
 
@@ -22,35 +19,41 @@ public abstract class BaseMItemVH<T extends ViewDataBinding> extends BaseMomentV
 
     BaseMItemVH(@NonNull T binding) {
         super(binding.getRoot());
+        this.binding = binding;
         momentItemViewModel = new MomentItemViewModel(itemView);
+        initCommentPopup();
+        bindMomentView(momentItemViewModel);
+    }
+
+    /**
+     * 初始化弹窗
+     */
+    private void initCommentPopup() {
         if (commentPopup == null) {
             commentPopup = new CommentPopup(binding.getRoot().getContext());
             CommentPopup.OnPopupClickListener onPopupClickListener = new CommentPopup.OnPopupClickListener() {
                 @Override
-                public void onLikeClick(View v, @NonNull MomentsInfo info, boolean hasLiked) {
+                public void onLikeClick(View v, @NonNull MomentItemBean info, boolean hasLiked) {
                     if (hasLiked) {
                     } else {
                     }
                 }
 
                 @Override
-                public void onCommentClick(View v, @NonNull MomentsInfo info) {
+                public void onCommentClick(View v, @NonNull MomentItemBean info) {
                     listener.showCommentBox(itemView, getAdapterPosition(), "213", null);
                 }
             };
             commentPopup.setOnCommentPopupClickListener(onPopupClickListener);
         }
-        VhMenuClickListener menuClickListener = (itemView, textBean) -> {
+        VhMenuClickListener menuClickListener = (itemView, momentItemBean) -> {
             commentPopup.showPopupWindow(getMenuImgView());
         };
         momentItemViewModel.setMenuClickListener(menuClickListener);
-
-        this.binding = binding;
-        bindMomentView(momentItemViewModel);
     }
 
-    public void setTextBean(TextBean textBean) {
-        momentItemViewModel.setTextBean(textBean);
+    public void setMomentItemBean(MomentItemBean momentItemBean) {
+        momentItemViewModel.setMomentItemBean(momentItemBean);
     }
 
     public void setPopupClickListener(MomentsMainAdapter.ShowCommentListener listener) {
@@ -59,7 +62,7 @@ public abstract class BaseMItemVH<T extends ViewDataBinding> extends BaseMomentV
 
 
     public interface VhMenuClickListener {
-        void onMenuClick(View itemView, TextBean textBean);
+        void onMenuClick(View itemView, MomentItemBean momentItemBean);
     }
 
     public abstract void bindMomentView(MomentItemViewModel momentItemViewModel);

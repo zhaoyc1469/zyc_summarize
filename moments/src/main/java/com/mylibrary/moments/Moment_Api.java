@@ -1,6 +1,6 @@
 package com.mylibrary.moments;
 
-import com.mylibrary.moments.bean.TextBean;
+import com.mylibrary.moments.bean.MomentItemBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -11,9 +11,9 @@ import retrofit2.http.POST;
 public interface Moment_Api {
 
     @GET("action/apiv2/banner?catalog=1")
-    Observable<TextBean> login();
+    Observable<MomentItemBean> login();
 
     @POST("action/apiv/")
     @FormUrlEncoded
-    Observable<TextBean> checkVersion(@Field("catalog") String version);
+    Observable<MomentItemBean> checkVersion(@Field("catalog") String version);
 }

@@ -1,6 +1,7 @@
 package com.mylibrary.moments.view.customs.commentwidget;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,7 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.mylibrary.moments.R;
-import com.mylibrary.moments.bean.MomentsInfo;
+import com.mylibrary.moments.bean.LikesInfo;
+import com.mylibrary.moments.bean.MomentItemBean;
 import com.mylibrary.moments.utils.WeakHandler;
 
 import razerdp.basepopup.BasePopupWindow;
@@ -33,7 +35,7 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
     private RelativeLayout mLikeClikcLayout;
     private RelativeLayout mCommentClickLayout;
 
-    private MomentsInfo mMomentsInfo;
+    private MomentItemBean momentItemBean;
 
     private WeakHandler handler;
     private ScaleAnimation mScaleAnimation;
@@ -47,12 +49,12 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
         super(context);
         handler = new WeakHandler();
 
-        mLikeView =  findViewById(R.id.iv_like);
+        mLikeView = findViewById(R.id.iv_like);
         mLikeViewAnimate = findViewById(R.id.iv_like_blue);
         mLikeText = findViewById(R.id.tv_like);
 
-        mLikeClikcLayout =  findViewById(R.id.item_like);
-        mCommentClickLayout =  findViewById(R.id.item_comment);
+        mLikeClikcLayout = findViewById(R.id.item_like);
+        mCommentClickLayout = findViewById(R.id.item_comment);
 
         mLikeClikcLayout.setOnClickListener(this);
         mCommentClickLayout.setOnClickListener(this);
@@ -145,13 +147,13 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
         int i = v.getId();
         if (i == R.id.item_like) {
             if (mOnPopupClickListener != null) {
-                mOnPopupClickListener.onLikeClick(v, mMomentsInfo, hasLiked);
+                mOnPopupClickListener.onLikeClick(v, momentItemBean, hasLiked);
                 mLikeViewAnimate.clearAnimation();
                 mLikeViewAnimate.startAnimation(mScaleAnimation);
             }
         } else if (i == R.id.item_comment) {
             if (mOnPopupClickListener != null) {
-                mOnPopupClickListener.onCommentClick(v, mMomentsInfo);
+                mOnPopupClickListener.onCommentClick(v, momentItemBean);
                 dismissWithOutAnimate();
             }
         }
@@ -167,12 +169,12 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
     }
 
 
-    public void updateMomentInfo(@NonNull MomentsInfo info) {
-        this.mMomentsInfo = info;
+    public void updateMomentItemBean(@NonNull MomentItemBean momentItemBean) {
+        this.momentItemBean = momentItemBean;
         hasLiked = false;
-//        if (!ToolUtil.isListEmpty(info.getLikesList())) {
-//            for (LikesInfo likesInfo : info.getLikesList()) {
-//                if (TextUtils.equals(likesInfo.getUserid(), LocalHostManager.INSTANCE.getUserid())) {
+//        if (!ToolUtil.isListEmpty(momentItemBean.getLikesList())) {
+//            for (LikesInfo likesInfo : momentItemBean.getLikesList()) {
+//                if (TextUtils.equals(likesInfo.getUserId(), LocalHostManager.INSTANCE.getUserid())) {
 //                    hasLiked = true;
 //                    break;
 //                }
@@ -184,9 +186,9 @@ public class CommentPopup extends BasePopupWindow implements View.OnClickListene
 
     //=============================================================InterFace
     public interface OnPopupClickListener {
-        void onLikeClick(View v, @NonNull MomentsInfo info, boolean hasLiked);
+        void onLikeClick(View v, @NonNull MomentItemBean momentItemBean, boolean hasLiked);
 
-        void onCommentClick(View v, @NonNull MomentsInfo info);
+        void onCommentClick(View v, @NonNull MomentItemBean momentItemBean);
     }
 
     static class SpringInterPolator extends LinearInterpolator {
