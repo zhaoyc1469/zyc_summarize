@@ -5,11 +5,6 @@ android {
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
     useLibrary 'org.apache.http.legacy'
 
-    compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
-    }
-
     dataBinding {
         enabled = true
     }
@@ -26,6 +21,11 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+    }
+
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
     }
 
 }
