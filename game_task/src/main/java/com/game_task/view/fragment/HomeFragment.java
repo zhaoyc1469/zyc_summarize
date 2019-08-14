@@ -1,16 +1,16 @@
-package com.app.entrance.view.fragment;
+package com.game_task.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.app.entrance.BR;
-import com.app.entrance.R;
-import com.app.entrance.databinding.FragmentHomeBinding;
-import com.app.entrance.viewModel.HomeFrgViewModel;
+import com.game_task.BR;
+import com.game_task.databinding.FragmentHomeBinding;
 import com.app.frame.base.BaseFragment;
+import com.game_task.R;
+import com.game_task.viewModel.HomeFrgFrgViewModel;
 
-public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFrgViewModel> {
+public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFrgFrgViewModel> {
 
 
     @Override

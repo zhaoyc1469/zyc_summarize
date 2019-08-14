@@ -9,20 +9,12 @@ import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;
 import com.app.entrance.model.SplashModel;
-import com.app.frame.utils.ThreadPoolTools;
-import com.common.function.utils.PingUtils;
 
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Flowable;
-import io.reactivex.FlowableEmitter;
-import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.Observable;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 public class SplashViewModel extends BaseViewModel<SplashModel> implements ISplashViewModel {
 

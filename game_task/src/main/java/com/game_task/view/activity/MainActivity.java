@@ -1,23 +1,25 @@
-package com.app.entrance.view.activity;
+package com.game_task.view.activity;
 
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.app.entrance.view.fragment.HomeFragment;
-import com.app.entrance.view.fragment.MineFragment;
-import com.app.entrance.viewModel.MainViewModel;
 import com.app.frame.base.BaseActivity;
-import com.app.entrance.BR;
-import com.app.entrance.R;
-import com.app.entrance.databinding.ActivityMainBinding;
 import com.app.frame.base.BaseFragment;
+import com.game_task.BR;
+import com.game_task.R;
+import com.game_task.databinding.ActivityMainBinding;
+import com.game_task.view.fragment.HomeFragment;
+import com.game_task.view.fragment.MineFragment;
+import com.game_task.view.fragment.TaskFragment;
+import com.game_task.viewModel.MainViewModel;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
 
     private BaseFragment currentFragment;
     private MineFragment mineFragment;
+    private TaskFragment taskFragment;
     private HomeFragment homeFragment;
     private FragmentManager fragManager;
 
@@ -62,12 +64,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
                 fragTrn.commit();
                 break;
             case 2:
-                startActivity("/shop/GoodsListActivity");
+                if (taskFragment == null) {
+                    taskFragment = new TaskFragment();
+                    currentFragment = taskFragment;
+                    fragTrn.add(R.id.fl_content, taskFragment);
+                } else {
+                    currentFragment = taskFragment;
+                    fragTrn.show(taskFragment);
+                }
+                fragTrn.commit();
                 break;
             case 3:
-                startActivity("/moments/MomentsMainActivity");
-                break;
-            case 4:
                 if (mineFragment == null) {
                     mineFragment = new MineFragment();
                     currentFragment = mineFragment;

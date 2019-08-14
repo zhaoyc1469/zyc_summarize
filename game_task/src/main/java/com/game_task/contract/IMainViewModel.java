@@ -1,4 +1,4 @@
-package com.app.entrance.contract;
+package com.game_task.contract;
 
 import com.app.frame.contract.IViewModel;
 

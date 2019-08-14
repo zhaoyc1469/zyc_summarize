@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.game_task.viewModel.TaskFrgViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.TaskActivity">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_h_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            binding:layout_constraintGuide_percent="0.10"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_todo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            binding:layout_constraintEnd_toStartOf="@id/rl_btn_doing"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="parent"
+            binding:layout_constraintBottom_toBottomOf="@id/gl_h_10">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_btn_doing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toEndOf="@id/rl_btn_todo"
+            binding:layout_constraintTop_toTopOf="parent"
+            binding:layout_constraintBottom_toBottomOf="@id/gl_h_10">
+
+        </RelativeLayout>
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_task_doing"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility='@{viewModel.showType == 0?View.VISIBLE:View.GONE}'
+            binding:layout_constraintBottom_toBottomOf="parent"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="@id/gl_h_10">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/srl_task_todo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility='@{viewModel.showType == 1?View.VISIBLE:View.GONE}'
+            binding:layout_constraintBottom_toBottomOf="parent"
+            binding:layout_constraintEnd_toEndOf="parent"
+            binding:layout_constraintStart_toStartOf="parent"
+            binding:layout_constraintTop_toTopOf="@id/gl_h_10">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

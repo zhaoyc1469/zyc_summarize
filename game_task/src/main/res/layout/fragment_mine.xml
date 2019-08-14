@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.app.entrance.viewModel.HomeFrgViewModel" />
+            type="com.game_task.viewModel.MineFrgFrgViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.fragment.HomeFragment">
+        tools:context="com.game_task.view.fragment.MineFragment">
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

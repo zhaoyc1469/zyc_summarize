@@ -1,1 +1,1 @@
-include ':app', ':base', ':room_db', ':function', ':shopping_mall', ':magic_camera', ':moments'
+include ':app', ':base', ':function', ':game_task'

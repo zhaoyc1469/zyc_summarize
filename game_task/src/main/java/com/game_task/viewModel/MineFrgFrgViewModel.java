@@ -1,15 +1,13 @@
-package com.app.entrance.viewModel;
+package com.game_task.viewModel;
 
-import com.app.entrance.contract.IMineViewModel;
-import com.app.entrance.model.MainModel;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
-import com.app.entrance.model.MineModel;
-import com.mylibrary.magiccamera.view.activity.ScreenTestActivity;
+import com.game_task.contract.IMineFrgViewModel;
+import com.game_task.model.MineModel;
 
-public class MineFrgViewModel extends BaseViewModel<MineModel> implements IMineViewModel {
+public class MineFrgFrgViewModel extends BaseViewModel<MineModel> implements IMineFrgViewModel {
 
     private SingleLiveEvent<Integer> screenClickEvent;
 
