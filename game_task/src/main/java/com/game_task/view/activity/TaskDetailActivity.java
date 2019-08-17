@@ -1,5 +1,6 @@
 package com.game_task.view.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -13,11 +14,17 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.app.frame.base.BaseActivity;
 import com.app.frame.down.InstallUtils;
 import com.app.frame.manager.AppManager;
+import com.app.frame.utils.SimpleObserver;
 import com.game_task.BR;
 import com.game_task.R;
 import com.game_task.databinding.ActivityTaskDetailBinding;
 import com.game_task.viewModel.TaskDetailViewModel;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import java.util.Objects;
+
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 @Route(path = "/game_task/TaskDetailActivity")
 public class TaskDetailActivity extends BaseActivity<ActivityTaskDetailBinding, TaskDetailViewModel> {
@@ -28,7 +35,7 @@ public class TaskDetailActivity extends BaseActivity<ActivityTaskDetailBinding, 
     public static final String APK_URL = "http://download.fir.im/v2/app/install/56dd4bb7e75e2d27f2000046?download_token=e415c0fd1ac3b7abcb65ebc6603c59d9&source=update";
     // 下载保存路径
     public static final String APK_SAVE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() +
-            AppManager.getAppManager().getApp().getPackageName() + "/DownAPK/"+ "asdfdsaf" +".apk";
+            AppManager.getAppManager().getApp().getPackageName() + "/DownAPK/" + "asdfdsaf" + ".apk";
     private InstallUtils.DownloadCallBack downloadCallBack;
 
 
@@ -128,15 +135,25 @@ public class TaskDetailActivity extends BaseActivity<ActivityTaskDetailBinding, 
     @Override
     protected void initViewObservable() {
         mViewModel.getDownClickEvent().observe(this, v -> {
-            InstallUtils.with(this)
-                    //必须-下载地址
-                    .setApkUrl(APK_URL)
-                    //非必须-下载保存的文件的完整路径+name.apk
-                    .setApkPath(APK_SAVE_PATH)
-                    //非必须-下载回调
-                    .setCallBack(downloadCallBack)
-                    //开始下载
-                    .startDownload();
+            RxPermissions rxPermissions = new RxPermissions(getTheActivity());
+            rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    .subscribe(new SimpleObserver<Boolean>() {
+
+                        @Override
+                        public void onNext(Boolean aBoolean) {
+                            if (aBoolean) {
+                                InstallUtils.with(getTheActivity())
+                                        //必须-下载地址
+                                        .setApkUrl(APK_URL)
+                                        //非必须-下载保存的文件的完整路径+name.apk
+                                        .setApkPath(APK_SAVE_PATH)
+                                        //非必须-下载回调
+                                        .setCallBack(downloadCallBack)
+                                        //开始下载
+                                        .startDownload();
+                            }
+                        }
+                    });
         });
     }
 

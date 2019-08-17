@@ -121,7 +121,7 @@ public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewMode
     }
 
     @Override
-    public Activity getTheActivity() {
+    public FragmentActivity getTheActivity() {
         return this;
     }
 
