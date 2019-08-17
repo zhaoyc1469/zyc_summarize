@@ -11,7 +11,7 @@ import com.game_task.R;
 import com.game_task.databinding.FragmentMineBinding;
 import com.game_task.viewModel.MineFrgFrgViewModel;
 
-@Route(path = "/app/MineFragment")
+@Route(path = "/game_task/MineFragment")
 public class MineFragment extends BaseFragment<FragmentMineBinding, MineFrgFrgViewModel> {
 
 

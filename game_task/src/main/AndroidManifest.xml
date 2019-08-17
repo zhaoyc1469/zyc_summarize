@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.game_task">
+
+    <application>
+        <activity android:name=".view.activity.GameDetailActivity" />
+        <activity android:name=".view.activity.TaskDetailActivity" />
+        <activity android:name=".view.activity.MainActivity" />
+    </application>
+
+</manifest>

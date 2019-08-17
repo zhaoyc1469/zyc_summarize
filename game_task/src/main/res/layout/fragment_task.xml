@@ -33,7 +33,8 @@
             binding:layout_constraintEnd_toStartOf="@id/rl_btn_doing"
             binding:layout_constraintStart_toStartOf="parent"
             binding:layout_constraintTop_toTopOf="parent"
-            binding:layout_constraintBottom_toBottomOf="@id/gl_h_10">
+            binding:layout_constraintBottom_toBottomOf="@id/gl_h_10"
+            binding:onClickCommand="@{viewModel.toDoClick}">
 
         </RelativeLayout>
 

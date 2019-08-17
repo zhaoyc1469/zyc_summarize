@@ -23,6 +23,9 @@ import java.util.Map;
 
 public abstract class BaseActivity<DataBinding extends ViewDataBinding, ViewModel extends BaseViewModel> extends RxAppCompatActivity implements IView {
 
+    /** 日志输出标志 **/
+    protected final String TAG = this.getClass().getSimpleName();
+
     public DataBinding mDataBinding;
     public ViewModel mViewModel;
 

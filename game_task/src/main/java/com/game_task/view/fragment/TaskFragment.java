@@ -11,7 +11,7 @@ import com.game_task.R;
 import com.game_task.databinding.FragmentTaskBinding;
 import com.game_task.viewModel.TaskFrgViewModel;
 
-@Route(path = "/test/TaskFragment")
+@Route(path = "/game_task/TaskFragment")
 public class TaskFragment extends BaseFragment<FragmentTaskBinding, TaskFrgViewModel> {
 
     @Override

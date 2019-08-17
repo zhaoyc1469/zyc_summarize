@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.game_task.BR;
 import com.game_task.databinding.FragmentHomeBinding;
 import com.app.frame.base.BaseFragment;
 import com.game_task.R;
 import com.game_task.viewModel.HomeFrgFrgViewModel;
 
+@Route(path = "/game_task/HomeFragment")
 public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFrgFrgViewModel> {
 
 
