@@ -138,7 +138,6 @@ public class TaskDetailActivity extends BaseActivity<ActivityTaskDetailBinding, 
             RxPermissions rxPermissions = new RxPermissions(getTheActivity());
             rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     .subscribe(new SimpleObserver<Boolean>() {
-
                         @Override
                         public void onNext(Boolean aBoolean) {
                             if (aBoolean) {
