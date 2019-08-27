@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mylibrary.moments">
+    package="com.camera.moments">
 
     <application>
         <activity
-            android:name=".view.activity.MomentsMainActivity" />
+            android:name="com.camera.moments.view.activity.MomentsMainActivity" />
 
 
 
         <meta-data
-            android:name="com.mylibrary.moments.momentConfig"
+            android:name="com.camera.moments.momentConfig"
             android:value="ConfigModule"/>
     </application>
 

@@ -41,8 +41,6 @@ dependencies {
 
     //support
     api rootProject.ext.dependencies["appcompat-x"]
-    api rootProject.ext.dependencies["core-x"]
-    api rootProject.ext.dependencies["support-x"]
     api rootProject.ext.dependencies["recyclerview"]
     api rootProject.ext.dependencies["constraint"]
 

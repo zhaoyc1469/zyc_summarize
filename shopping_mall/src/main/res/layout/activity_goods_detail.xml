@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.mylibrary.shopping_mall.viewModel.GoodsDetailViewModel" />
+            type="com.camera.shopping_mall.viewModel.GoodsDetailViewModel" />
 
     </data>
 

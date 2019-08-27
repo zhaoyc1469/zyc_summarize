@@ -10,8 +10,9 @@ ext {
     ]
 
     version = [
+            androidXAppcompatVersion   : "1.1.0-rc01",
             androidXSupportSdkVersion  : "1.0.0+",
-            androidConstraintSdkVersion: "1.1.2",
+            androidConstraintSdkVersion: "2.0.0-beta2",
             retrofitSdkVersion         : "2.4.0",
             rxlifecycleXSdkVersion     : "2.0.0",
             rxlifecycle3SdkVersion     : "3.0.0",
@@ -26,9 +27,7 @@ ext {
             "constraint"              : "androidx.constraintlayout:constraintlayout:${version["androidConstraintSdkVersion"]}",
 
             //support_x
-            "appcompat-x"             : "androidx.appcompat:appcompat:${version["androidXSupportSdkVersion"]}",
-            "core-x"                  : "androidx.core:core:${version["androidXSupportSdkVersion"]}",
-            "support-x"               : "androidx.legacy:legacy-support-v4:${version["androidXSupportSdkVersion"]}",
+            "appcompat-x"             : "androidx.appcompat:appcompat:${version["androidXAppcompatVersion"]}",
             "recyclerview"            : "androidx.recyclerview:recyclerview:${version["androidXSupportSdkVersion"]}",
             "multidex"                : "androidx.multidex:multidex:${version["androidMultidexSdkVersion"]}",
 

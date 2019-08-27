@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.mylibrary.moments.viewModel.MomentsMainViewModel" />
+            type="com.camera.moments.viewModel.MomentsMainViewModel" />
 
     </data>
 
@@ -43,7 +43,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.mylibrary.moments.view.customs.commentwidget.CommentBox
+        <com.camera.moments.view.customs.commentwidget.CommentBox
             android:id="@+id/widget_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.mylibrary.magiccamera.viewModel.ScreenTestViewModel" />
+            type="com.camera.magiccamera.viewModel.ScreenTestViewModel" />
 
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         tools:context=".view.activity.ScreenTestActivity">
 
-        <com.mylibrary.magiccamera.view.view.Camera2TextureView
+        <com.camera.magiccamera.view.view.Camera2TextureView
             android:id="@+id/c2_texture"
             android:layout_width="0dp"
             android:layout_height="0dp"

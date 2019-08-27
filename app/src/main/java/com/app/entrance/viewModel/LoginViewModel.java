@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.app.entrance.contract.ILoginViewModel;
 import com.app.entrance.model.LoginModel;
-import com.app.entrance.view.activity.MainActivity;
+import com.main.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
 import com.app.frame.contract.IViewModel;
