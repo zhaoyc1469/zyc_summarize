@@ -43,6 +43,8 @@ dependencies {
 
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 
+
     api project(path: ':function')
+
 
 }

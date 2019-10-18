@@ -23,4 +23,9 @@ public class PlayActivity extends BaseActivity<ActivityPlayBinding, PlayViewMode
     protected int initVariableId() {
         return BR.viewModel;
     }
+
+    @Override
+    protected void initUI() {
+        mDataBinding.mlTop.transitionToEnd();
+    }
 }
