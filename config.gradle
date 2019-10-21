@@ -3,7 +3,7 @@ ext {
     android = [
             compileSdkVersion: 28,
             buildToolsVersion: "28.0.3",
-            minSdkVersion    : 16,
+            minSdkVersion    : 19,
             targetSdkVersion : 28,
             versionCode      : 180,
             versionName      : "2.5.0"
@@ -81,6 +81,12 @@ ext {
 
             //bugly
             "bugly-sdk"               : "com.tencent.bugly:crashreport:${version["buglyersion"]}",
+
+            //gsyVideoPlayer
+            "gsyVideoPlayer"          : "com.shuyu:gsyVideoPlayer-java:7.1.1",
+            "gsyVideoPlayer-armv7a"   : "com.shuyu:gsyVideoPlayer-armv7a:7.1.1",
+            "gsyVideoPlayer-arm64"    : "com.shuyu:gsyVideoPlayer-arm64:7.1.1",
+
 
     ]
 }

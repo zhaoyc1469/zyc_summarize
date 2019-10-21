@@ -1,11 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.common.function" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.common.function">
 
 
     <application>
 
         <meta-data
             android:name="com.common.function.functionConfig"
-            android:value="ConfigModule"/>
+            android:value="ConfigModule" />
     </application>
 </manifest>
