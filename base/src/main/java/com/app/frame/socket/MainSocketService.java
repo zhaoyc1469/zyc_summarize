@@ -3,7 +3,9 @@ package com.app.frame.socket;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
+import com.app.frame.bus.RxBus;
 import com.app.frame.manager.AppManager;
 import com.koushikdutta.async.AsyncServer;
 import com.koushikdutta.async.AsyncSocket;
@@ -192,7 +194,8 @@ public class MainSocketService implements Runnable {
             Collections.addAll(setJson, jsonArray);
 
             for (String msg : setJson) {
-
+                Log.e("socketTest_Receive", msg);
+                RxBus.getInstance().send(new SocketBean(null, msg));
                 bbl.recycle();
             }
         });
@@ -219,6 +222,7 @@ public class MainSocketService implements Runnable {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
+        Log.e("socketTest_Send",str);
         if (asyncSocket == null) {
             return false;
         }
@@ -264,23 +268,4 @@ public class MainSocketService implements Runnable {
         release(true);
     }
 
-    private OnDataCallbackListener onDataCallbackListener; //Socket 接收数据监听器
-    private OnCloseCallbackListener onCloseCallbackListener; //Socket Closed 监听器
-    private OnEndCallbackListener onEndCallbackListener; //Socket End 监听器
-
-    public interface OnDataCallbackListener {
-        void onDataCallBack(String jsonStr);
-    }
-
-    public interface OnCloseCallbackListener {
-        void onCloseCallBack();
-    }
-
-    public interface OnEndCallbackListener {
-        void onEndCallBack();
-    }
-
-    public void setOnDataCallbackListener(OnDataCallbackListener onDataCallbackListener) {
-        this.onDataCallbackListener = onDataCallbackListener;
-    }
 }

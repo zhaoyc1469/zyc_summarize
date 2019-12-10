@@ -51,8 +51,9 @@ public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginV
     //用户名输入框焦点改变的回调事件
     public BindingCommand<Boolean> onFocusChangeCommand = new BindingCommand<>(hasFocus -> clearBtnVisibility.set(hasFocus?View.VISIBLE:View.INVISIBLE));
 
-    //跳过按钮的点击事件
-    public BindingCommand loginClickCommand = new BindingCommand(() -> mModel.login(userName.get(), password.get()));
+    //登陆的点击事件
+    public BindingCommand loginClickCommand = new BindingCommand(() ->
+            mModel.login(userName.get(), password.get()));
 
     @Override
     protected void readSocketMsg(SocketBean socketBean) {
