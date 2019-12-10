@@ -3,10 +3,13 @@ package com.app.entrance.viewModel;
 import androidx.databinding.ObservableBoolean;
 import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableInt;
+
+import android.text.TextUtils;
 import android.view.View;
 
 import com.app.entrance.contract.ILoginViewModel;
 import com.app.entrance.model.LoginModel;
+import com.app.frame.socket.SocketBean;
 import com.main.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
 import com.app.frame.binding.command.BindingCommand;
@@ -45,7 +48,16 @@ public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginV
     public BindingCommand<Boolean> onFocusChangeCommand = new BindingCommand<>(hasFocus -> clearBtnVisibility.set(hasFocus?View.VISIBLE:View.INVISIBLE));
 
     //跳过按钮的点击事件
-    public BindingCommand loginClickCommand = new BindingCommand(() -> mModel.login());
+    public BindingCommand loginClickCommand = new BindingCommand(() -> mModel.login(userName.get(), password.get()));
+
+    @Override
+    protected void readSocketMsg(SocketBean socketBean) {
+        if (TextUtils.equals(socketBean.getMsg(), "login,成功")){
+            loginSuccess();
+        } else {
+            requestFail(socketBean.getMsg());
+        }
+    }
 
     @Override
     public void loginSuccess() {
@@ -56,7 +68,7 @@ public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginV
     }
 
     @Override
-    public void requestFail(String f) {
+    public void requestFail(String failMsg) {
 
     }
 }

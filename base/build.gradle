@@ -89,4 +89,6 @@ dependencies {
     api rootProject.ext.dependencies["mmkv"]
     //bugly
     api rootProject.ext.dependencies["bugly-sdk"]
+    //android nio socket
+    api rootProject.ext.dependencies["androidasync"]
 }

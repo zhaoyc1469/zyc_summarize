@@ -81,6 +81,8 @@ ext {
 
             //bugly
             "bugly-sdk"               : "com.tencent.bugly:crashreport:${version["buglyersion"]}",
+            //androidasync
+            "androidasync"            : "com.koushikdutta.async:androidasync:2.+",
 
     ]
 }

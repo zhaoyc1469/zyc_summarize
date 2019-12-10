@@ -7,13 +7,17 @@ import androidx.lifecycle.ViewModel;
 
 import android.os.Bundle;
 
+import com.app.frame.bus.RxBus;
 import com.app.frame.contract.IView;
+import com.app.frame.socket.SocketBean;
 import com.trello.rxlifecycle3.LifecycleProvider;
 import com.app.frame.bus.event.SingleLiveEvent;
 import com.app.frame.contract.IViewModel;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import io.reactivex.functions.Consumer;
 
 
 public class BaseViewModel<M extends BaseModel> extends ViewModel implements IViewModel {
@@ -82,10 +86,14 @@ public class BaseViewModel<M extends BaseModel> extends ViewModel implements IVi
     }
 
     protected void registerRxBus() {
-
+        RxBus.getInstance().subscribe(SocketBean.class, (Consumer<SocketBean>) this::readSocketMsg);
     }
 
     protected void removeRxBus() {
+        RxBus.getInstance().unSubcribe();
+    }
+
+    protected  void readSocketMsg(SocketBean socketBean) {
 
     }
 
