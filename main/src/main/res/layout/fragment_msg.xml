@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="com.main.viewModel.HomeFrgViewModel" />
+            type="com.main.viewModel.MsgFrgViewModel" />
 
     </data>
 
     <androidx.constraintlayout.motion.widget.MotionLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.main.view.fragment.HomeFragment"
+        tools:context="com.main.view.fragment.MsgFragment"
         app:layoutDescription="@xml/motion_scene"
         app:showPaths="false">
 

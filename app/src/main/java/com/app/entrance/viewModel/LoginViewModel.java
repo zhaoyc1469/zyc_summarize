@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.app.entrance.contract.ILoginViewModel;
 import com.app.entrance.model.LoginModel;
+import com.app.frame.socket.MainSocketService;
 import com.app.frame.socket.SocketBean;
 import com.main.view.activity.MainActivity;
 import com.app.frame.base.BaseViewModel;
@@ -24,6 +25,9 @@ public class LoginViewModel extends BaseViewModel<LoginModel> implements ILoginV
 
     @Override
     protected void initData() {
+        //初始化Socket
+        MainSocketService.getInstance().connect();
+
         userName.set(mModel.getUserName());
         password.set(mModel.getPassword());
     }

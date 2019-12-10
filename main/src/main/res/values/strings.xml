@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">main</string>
+
+    <string name="message">消息</string>
+    <string name="task">任务</string>
+    <string name="project">项目</string>
+    <string name="process">流程</string>
+    <string name="my">我的</string>
 </resources>

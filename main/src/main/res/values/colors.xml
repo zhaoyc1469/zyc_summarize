@@ -4,6 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="colorBackGround">#f9f9f9</color>
+    <color name="colorGray">#e7eaed</color>
+    <color name="colorText">#9a9a9a</color>
+    <color name="colorTextPressed">#ff784b</color>
+
     <color name="color_3A3A3A">#FF3A3A3A</color>
     <color name="color_FF4D4D">#FFFF4D4D</color>
     <color name="color_08FF00">#FF08FF00</color>

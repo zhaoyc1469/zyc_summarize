@@ -24,9 +24,10 @@ public class MainViewModel extends BaseViewModel<MainModel> implements IMainView
         return bottomClickEvent;
     }
 
-    public BindingCommand homeClick = new BindingCommand(() -> bottomClickEvent.postValue(1));
-    public BindingCommand listClick = new BindingCommand(() -> bottomClickEvent.postValue(2));
-    public BindingCommand carClick = new BindingCommand(() -> bottomClickEvent.postValue(3));
-    public BindingCommand mineClick = new BindingCommand(() -> bottomClickEvent.postValue(4));
+    public BindingCommand msgClick = new BindingCommand(() -> bottomClickEvent.postValue(1));
+    public BindingCommand taskClick = new BindingCommand(() -> bottomClickEvent.postValue(2));
+    public BindingCommand projectClick = new BindingCommand(() -> bottomClickEvent.postValue(3));
+    public BindingCommand flowClick = new BindingCommand(() -> bottomClickEvent.postValue(4));
+    public BindingCommand mineClick = new BindingCommand(() -> bottomClickEvent.postValue(5));
 }
 

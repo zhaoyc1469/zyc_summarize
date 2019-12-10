@@ -16,113 +16,217 @@
         android:layout_height="match_parent"
         tools:context=".view.activity.LoginActivity">
 
-        <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="180dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/ic_launcher_background"
-            binding:layout_constraintEnd_toEndOf="parent"
-            binding:layout_constraintStart_toStartOf="parent"
-            binding:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription" />
-
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="16sp"
-            binding:layout_constraintBottom_toBottomOf="parent"
-            binding:layout_constraintEnd_toEndOf="parent"
-            binding:layout_constraintStart_toStartOf="parent"
-            binding:layout_constraintTop_toTopOf="parent"
-            binding:layout_constraintVertical_bias="0.4">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp" />
 
-            <View
-                android:layout_width="1dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp" />
+                android:gravity="top"
+                android:orientation="vertical">
 
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@null"
-                android:hint="请输入用户名"
-                android:text="@={viewModel.userName}"
-                android:textSize="16sp"
-                binding:onFocusChangeCommand="@{viewModel.onFocusChangeCommand}" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginRight="38dp"
+                    android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:padding="6dp"
-                android:visibility="@{viewModel.clearBtnVisibility}"
-                binding:onClickCommand="@{viewModel.clearUserNameOnClickCommand}" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="16sp"
-            binding:layout_constraintBottom_toBottomOf="parent"
-            binding:layout_constraintEnd_toEndOf="parent"
-            binding:layout_constraintStart_toStartOf="parent"
-            binding:layout_constraintTop_toTopOf="parent"
-            binding:layout_constraintVertical_bias="0.6">
-
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp" />
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp" />
-
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@null"
-                android:hint="请输入密码"
-                android:inputType="textPassword"
-                android:text="@={viewModel.password}"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/iv_swich_passwrod"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:padding="6dp"
-                binding:onClickCommand="@{viewModel.passwordShowSwitchOnClickCommand}" />
-        </LinearLayout>
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="70dp"
+                        android:gravity="center_vertical"
+                        android:src="@mipmap/logo" />
 
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="登录"
-            android:textSize="18sp"
-            binding:layout_constraintBottom_toBottomOf="parent"
-            binding:layout_constraintEnd_toEndOf="parent"
-            binding:layout_constraintStart_toStartOf="parent"
-            binding:layout_constraintTop_toTopOf="parent"
-            binding:layout_constraintVertical_bias="0.8"
-            binding:onClickCommand="@{viewModel.loginClickCommand}" />
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="70dp"
+                        android:background="@null"
+                        android:digits="0123456789"
+                        android:gravity="center_vertical"
+                        android:hint="请输入账户名"
+                        android:text="@={viewModel.userName}"
+                        binding:onFocusChangeCommand="@{viewModel.onFocusChangeCommand}"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:paddingLeft="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:visibility="@{viewModel.clearBtnVisibility}"
+                        binding:onClickCommand="@{viewModel.clearUserNameOnClickCommand}" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/horizontal_line" />
+
+                    <EditText
+                        android:id="@+id/et_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@null"
+                        android:gravity="center_vertical"
+                        android:hint="请输入密码"
+                        android:inputType="textPassword"
+                        android:maxLength="11"
+                        android:maxLines="1"
+                        android:paddingLeft="5dp"
+                        android:textColor="@android:color/black"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/horizontal_line" />
+
+                    <LinearLayout
+                        android:id="@+id/chg_pwd_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/et_pwd_new"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入新密码"
+                            android:inputType="textPassword"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingLeft="5dp"
+                            android:text="@={viewModel.password}"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/horizontal_line" />
+
+                        <ImageView
+                            android:id="@+id/iv_swich_passwrod"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:padding="6dp"
+                            binding:onClickCommand="@{viewModel.passwordShowSwitchOnClickCommand}" />
+                        <EditText
+                            android:id="@+id/et_pwd_confirm"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:hint="请输入确认密码"
+                            android:inputType="textPassword"
+                            android:maxLength="11"
+                            android:maxLines="1"
+                            android:paddingLeft="5dp"
+                            android:textColor="@android:color/black"
+                            android:textColorHint="@android:color/darker_gray"
+                            android:textSize="18sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/horizontal_line" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_enter"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:background="@drawable/shape_green_content_normal"
+                    android:text="登录"
+                    binding:onClickCommand="@{viewModel.loginClickCommand}"
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+
+                <RelativeLayout
+                    android:id="@+id/small_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="15dp"
+                        android:text="记住密码"
+                        android:textColor="@color/greens" />
+
+                    <TextView
+                        android:id="@+id/tv_chg_pwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:gravity="right"
+                        android:padding="15dp"
+                        android:text="修改密码"
+                        android:textColor="@android:color/darker_gray" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical"
+                android:paddingBottom="30dp">
+
+                <TextView
+                    android:id="@+id/tv_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="90dp"
+                    android:gravity="center"
+                    android:text="注册"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="16dp"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
